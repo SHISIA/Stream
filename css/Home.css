@@ -67,6 +67,7 @@ body{
     font-size: 28px;
     font-family: 'Josefin Slab', serif;
     font-weight: 700;
+    margin-left: 5%;
     /* font-weight: 800; */
 }
 /* <span > element class that styles the second parts of the trending and coming soon categories */
@@ -92,14 +93,14 @@ body{
 }
 
 /* styling the Div Holding the "Coming Soon"  films*/
-#comingSoonDiv{
+#comingSoonDiv , #trendingDiv{
     display: flex;
     justify-content: space-between;
     overflow-x: auto;
     overflow-y: hidden;
     white-space: nowrap;
 }
-#comingSoonDiv::-webkit-scrollbar {
+#comingSoonDiv::-webkit-scrollbar , #trendingDiv::-webkit-scrollbar{
     width: 0;
     background-color: transparent; /* optional: just make scrollbar invisible */
   }

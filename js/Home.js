@@ -106,6 +106,7 @@ async function loadSpecificCategory(parentElement,url,movie_id){
             margin:3%;
             margin-top:13%;
             color:red;
+            overflow:hidden;
             "
             >${data.results[movie_id].title}</p>
             <p style=
@@ -123,8 +124,9 @@ async function loadSpecificCategory(parentElement,url,movie_id){
 
 
 function loadCategories(){
-    for(let i=0;i<5;i++){
+    for(let i=0;i<=9;i++){
         loadSpecificCategory(comingSoonDiv,comingSoonUrl,i);
+        loadSpecificCategory(trendingDiv,trending,i);
     }
 
 }
