@@ -1,13 +1,26 @@
+/* body default style  */
 body{
     color: aliceblue;
     background-color: black;
 }
+/* the site's name */
+#siteName{
+    font-size: 25px;
+    letter-spacing: 3px;
+
+}
+/* The "see" part of the title */
+#titlePart{
+    color: red;
+}
+/* the top div holding the site name , search bar and menu button */
 #topBar{
     width: 95vw;
     display: flex;
     position: relative;
     justify-content: space-between;
     background-color: transparent;
+    margin: 0;
 }
 /* top two search and bar menu buttons */
 #menuButton , #searchButton{
@@ -40,6 +53,16 @@ body{
     font-weight: bold;
     cursor: pointer;
 }
-
-
+/* spans that style  trending and coming soon categories */
+ #trending , #comingSoon{
+    font-size: 28px;
+    font-family: 'Josefin Slab', serif;
+    font-weight: 700;
+    /* font-weight: 800; */
+}
+/* <span > element class that styles the second parts of the trending and coming soon categories */
+.titleSpan{
+    font-size: 25px;
+    font-weight: 500;
+}
 
