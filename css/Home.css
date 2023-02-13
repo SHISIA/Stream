@@ -18,7 +18,8 @@ body{
     width: 100vw;
     background-color: transparent;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    text-align: center;
 }
 /* the top div holding the site name , search bar and menu button */
 #topBar{
@@ -44,9 +45,10 @@ body{
     overflow-y: hidden;
     white-space: nowrap;
 }
+
 #tagMenu::-webkit-scrollbar {
     width: 0;
-    background-color: transparent; /* optional: just make scrollbar invisible */
+    background-color: transparent; /* optional:  makes tag scrollbar invisible */
   }
 
 /* top category tags "movies" , "TV Shows" , "Actors" , "Popular" etc */
@@ -78,9 +80,26 @@ body{
 /* cover image setup */
 #cover{
     position:relative;
-    width: 100vw;
-    height: 50vh;
-    margin: 3%;
+    width: 90vw;
+    height: 30vh;
+    margin: 0%;
     padding: 0%;
+    
+    border: 0px solid #971c1c;
+    box-shadow:1px 1px 2000px 8px #6c1f1f;
+    border-radius: 2%;
+    transition: box-shadow 0.5s ease-in-out;
 }
 
+/* styling the Div Holding the "Coming Soon"  films*/
+#comingSoonDiv{
+    display: flex;
+    justify-content: space-between;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+#comingSoonDiv::-webkit-scrollbar {
+    width: 0;
+    background-color: transparent; /* optional: just make scrollbar invisible */
+  }
