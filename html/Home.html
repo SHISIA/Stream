@@ -7,16 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/Home.css">
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab&display=swap" rel="stylesheet">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <title>StreamSee</title>
 </head>
 
 <body>
     <div id="topBar">
         <button type="submit" id="menuButton">
-            <!-- <i class="fa-solid fa-bars" style="font-size: large; color: aliceblue;"></i> -->
-            <span class="material-symbols-outlined">
-                menu
-                </span>
+            <i class="fa-solid fa-bars" style="font-size: large; color: aliceblue;"></i>
         </button>
         <p id="siteName">Stream<span id="titlePart">See</span></p>
         <button type="submit" id="searchButton">
@@ -31,6 +29,9 @@
         <button type="submit" id="trendingTag" class="tag">Trending</button>
         <button type="submit" id="comingSoonTag" class="tag">Coming Soon</button>
     </div>
+    <div id="previewDiv">
+        <img src="" alt="" id="cover">
+    </div>
     <div id="comingSoonDiv">
         <p id="comingSoon">Coming <span class="titleSpan">Soon</span></p>
     </div>
@@ -38,5 +39,5 @@
         <p id="trending">Trending <span class="titleSpan">Movies</span></p>
     </div>
 </body>
-
+<script src="/js/Home.js"></script>
 </html>

@@ -13,6 +13,13 @@ body{
 #titlePart{
     color: red;
 }
+/* div for randon movie previews */
+#previewDiv{
+    width: 100vw;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+}
 /* the top div holding the site name , search bar and menu button */
 #topBar{
     width: 95vw;
@@ -27,7 +34,7 @@ body{
     background-color:transparent;
     width: 50px;
     height: 50px;
-
+    cursor: pointer;
 }
 /* tag button div */
 #tagMenu{
@@ -64,5 +71,16 @@ body{
 .titleSpan{
     font-size: 25px;
     font-weight: 500;
+}
+
+/* Image resizing and appearance setting from here */
+
+/* cover image setup */
+#cover{
+    position:relative;
+    width: 100vw;
+    height: 50vh;
+    margin: 3%;
+    padding: 0%;
 }
 
