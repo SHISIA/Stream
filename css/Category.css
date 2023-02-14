@@ -1,0 +1,15 @@
+body{
+    color: aliceblue;
+    background-color: black;
+}
+
+/* parent div that holds the category title and category div */
+/* #categoryHolder{
+
+} */
+
+/* div that holds category results from search */
+#category{
+    display: flex;
+    flex-wrap: wrap;
+}

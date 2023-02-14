@@ -28,40 +28,40 @@ let trendingShows = "https://api.themoviedb.org/3/trending/tv/day?api_key=f3fa05
 // logic, functions and classes
 
 // movie entity
-class Movie{
-    // constructor(name, releaseDate,ratings,fullImage,trailer,backdropImage,popularity,genre) {
-    //     this.name = name;
-    //     this.releaseDate = releaseDate;
-    //     this.ratings=ratings;
-    //     this.fullImage=fullImage;
-    //     this.trailer=trailer;
-    //     this.backdropImage=backdropImage;
-    //     this.popularity=popularity;
-    //     this.genre=genre;
-    //   }
-    //   responsible for the top preview
+// class Movie{
+//     // constructor(name, releaseDate,ratings,fullImage,trailer,backdropImage,popularity,genre) {
+//     //     this.name = name;
+//     //     this.releaseDate = releaseDate;
+//     //     this.ratings=ratings;
+//     //     this.fullImage=fullImage;
+//     //     this.trailer=trailer;
+//     //     this.backdropImage=backdropImage;
+//     //     this.popularity=popularity;
+//     //     this.genre=genre;
+//     //   }
+//     //   responsible for the top preview
 
-    constructor(name){
-        this.name=name;
-    }
+//     constructor(name){
+//         this.name=name;
+//     }
 
-      set name(value){
-        this.name=value
-      }
-    // Shows more details about the movie
-      showDetails(){
+//       set name(value){
+//         this.name=value
+//       }
+//     // Shows more details about the movie
+//       showDetails(){
 
-      }
+//       }
 
-      get name(){
-        return this.name;
-      }
+//       get name(){
+//         return this.name;
+//       }
 
-    //   plays the movie trailer
-    playTrailer(){
+//     //   plays the movie trailer
+//     playTrailer(){
 
-    }
-}
+//     }
+// }
 
 
 //set up cover movie from trending
@@ -131,6 +131,12 @@ function loadCategories(){
 
 }
 
+document.addEventListener("DOMContentLoaded", function() {
+  // Your function code here
+  setCover();
+  loadCategories();
+});
 
-window.onload = setCover();
-window.onload = loadCategories()
+
+// window.onload = setCover();
+// window.onload = loadCategories()
