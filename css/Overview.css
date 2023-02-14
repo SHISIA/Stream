@@ -9,7 +9,7 @@ body {
 body::before {
     content: "";
     /* background-color: rgb(0, 0, 0,.8); */
-    background: linear-gradient(to top, #000000 10%, #181414 30%, transparent 100%);
+    background: linear-gradient(to top, #000000 10%, #181414 30%, transparent 80%,black 100%);
     width: 100%;
     background-size: cover;
     background-position: center;
@@ -46,7 +46,7 @@ body::before {
 
 /* site name "See" part */
 #titlePart{
-    color: #971c1c;
+    color: #ff0000;
 }
 
 /* movie title */
@@ -73,27 +73,39 @@ body::before {
     font-size: 70px;
     background-color: transparent;
     border-color: transparent;
+    cursor: pointer;
     text-align: center;
 }
 
 /* div holding the movie summary */
-#descriptionDiv {
-    /* border: 0px solid #971c1c;
+/* #descriptionDiv {
+    border: 0px solid #971c1c;
     box-shadow: 1px 1px 2000px 8px #0e0303;
     border-radius: 2%;
-    transition: box-shadow 0.8s ease-in-out; */
-}
+    transition: box-shadow 0.8s ease-in-out;
+} */
 
 /* movie summary paragraph */
-#description {
+#description , #release_date {
     text-align: left;
     background-color:transparent;
     color: rgb(255, 255, 255);
-    font-size: 18px;
+    font-size: 15px;
     border: 0px solid #971c1c;
+    margin: 2%;
 }
 
 /* release date <p> tag info */
 #release_date{
     color: wheat;
+    margin-top: 5%;
+}
+
+/*  */
+#searchButton , #backButton{
+    background-color: transparent;
+    border-color: transparent;
+    color: whitesmoke;
+    font-size: 20px;
+    cursor: pointer;
 }
