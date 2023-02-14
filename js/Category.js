@@ -4,6 +4,7 @@ let categoryTitle = document.getElementById("categoryTitle");
 
 // gets search keyword from the browser's top link from the search area
 let paramTitle = new URLSearchParams(window.location.search).get("param");
+let loadedMovies = [];
 
 
 // api prerequisites
@@ -23,19 +24,33 @@ let upcoming = "https://api.themoviedb.org/3/movie/upcoming?"+api_key;
 
 // loads the results for the clicked on tag
 async function loadSelectedCategory(element,url,movie_id,type){
-    let response = await fetch(`${url}`)
-    let data = await response.json();
-    console.log("data",data);
-    let filmType = type.toString();
-    console.log("type ",filmType);
-    switch(filmType){
-        case "tv":
-          tvLoad(element,data,movie_id,movie_id);
-          break;
-        case "movie":
-          movieLoad(element,data,movie_id);
-          break;
+    try {
+        let response = await fetch(`${url}`)
+        let data = await response.json();
+        console.log("data",data);
+            let filmType = type.toString(); 
+            switch(filmType){
+                case "tv":
+                  tvLoad(element,data,movie_id,movie_id);
+                  break;
+                case "movie":
+                  movieLoad(element,data,movie_id);
+                  break; 
+                default:
+                    movieLoad(element,data,movie_id);
+                    break;
+            }
+
+    } catch (error) {
+        console.log("");
     }
+}
+
+
+// function to load when movie item is clicked
+
+function openSelectedMedia(value){
+    console.log("This is clicked data ",value);
 }
 
 // Movie result template : kindly look at tvLoad function comments 
@@ -47,14 +62,15 @@ function movieLoad(element,data,movie_id){
     <div style="
     width:50%;
     margin-bottom:20px;
-    cursor:pointer;
-    ">
-        <img src="${imagePath}${data.results[movie_id].poster_path}" 
+   
+    "><img src="${imagePath}${data.results[movie_id].poster_path}" 
             style=
             "width:130px;
             height:180px;
             border-radius:6% 6% 0% 0%;
+            cursor:pointer;
             "
+            onclick="openSelectedMedia('${data.results[movie_id].title}')"
         >
         <div style=
         "
@@ -86,11 +102,13 @@ function movieLoad(element,data,movie_id){
     `
 }
 
+
+
 // tv results template : the api responds with different json query methods for movies and tv so this called for different templates : same for movies just above
 function tvLoad(element,data,movie_id){
     let capializedTitle = paramTitle.charAt(0).toUpperCase() + paramTitle.substring(1);
     if(capializedTitle.toLowerCase()==="tvshows"){
-        capializedTitle="Tv Shows"
+        capializedTitle="TV Shows"
     }
     categoryTitle.innerText=capializedTitle;
     element.innerHTML+=
@@ -98,13 +116,13 @@ function tvLoad(element,data,movie_id){
     <div style="
     width:50%;
     margin-bottom:20px;
-    cursor:pointer;
     ">
         <img src="${imagePath}${data.results[movie_id].poster_path}" 
             style=
             "width:130px;
             height:180px;
             border-radius:6% 6% 0% 0%;
+            cursor:pointer;
             "
         >
         <div style=
@@ -144,6 +162,7 @@ for(let i=0;i<=19;i++){
 }
 
 function loadPage(){
+    console.log("title param",paramTitle);
     switch(paramTitle){
         case "movies":
             pageOne(trendingMovie,"movie");
