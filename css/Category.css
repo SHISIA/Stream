@@ -13,3 +13,17 @@ body{
     display: flex;
     flex-wrap: wrap;
 }
+#categoryTitle{
+    color: aliceblue;
+    font-size: 28px;
+    font-family: 'Josefin Slab', serif;
+    font-weight: 700;
+    margin-left: 5%;
+}
+
+#backButton{
+    background-color: transparent;
+    color:aliceblue;
+    font-size: large;
+    cursor: pointer;
+}

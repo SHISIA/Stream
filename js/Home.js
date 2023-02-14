@@ -3,11 +3,12 @@ const menuButton = document.getElementById("menuButton");
 const searchButton = document.getElementById("searchButton");
 const moviesTag = document.getElementById("moviesTag");
 const tvShowsTag = document.getElementById("tvShowsTag");
-const actorsTag = document.getElementById("actorsTag");
+// const actorsTag = document.getElementById("actorsTag");
 const popularTag = document.getElementById("popularTag");
 const trendingTag = document.getElementById("trendingTag");
-const comingSoonTag = document.getElementById("comingSoonTag");
+const upComingTag = document.getElementById("comingSoonTag");
 const cover = document.getElementById("cover");
+
 
 // variables
 // let name , releaseDate,ratings , fullImage, trailer, backdropImage, popularity,genre;
@@ -72,6 +73,31 @@ async function setCover() {
 //   description.innerText=`${myText.results[9].overview}`;
 //   title.innerText = `${myText.results[9].original_title}`;
 }
+
+
+// tag event listeners to load movies specified by those tags
+   moviesTag.onclick=() =>{
+    window.location="/html/Category.html?param=movies";
+   }
+   tvShowsTag.onclick=() =>{
+    window.location="/html/Category.html?param=tvshows";
+   }
+  //  actorsTag.onclick=() =>{
+  //   window.location="/html/Category.html?param=people";
+
+  //  }
+   popularTag.onclick=() =>{
+    window.location="/html/Category.html?param=popular";
+
+   }
+   trendingTag.onclick=() =>{
+    window.location="/html/Category.html?param=trending";
+
+   }
+   upComingTag.onclick=() =>{
+    window.location="/html/Category.html?param=upcoming";
+
+   }
 
 
 async function loadSpecificCategory(parentElement,url,movie_id){
