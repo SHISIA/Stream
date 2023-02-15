@@ -1,0 +1,28 @@
+body{
+    background-color: black;
+    color: whitesmoke;
+    font-family: 'Josefin Slab', serif;
+}
+#avatarDiv{
+    display: flex;
+    justify-content:left;
+    margin-top: 5%;
+    margin-left: 5%;
+}
+#movieName{
+    margin-left: 5%;
+    font-size: 20px;
+    font-weight: bold;
+}
+iframe{
+    border: 0px solid white;
+    background-color: rgb(24, 46, 65);
+    width: 98%;
+    border-radius: 10px;
+    margin-top: 5%;
+    height: 80vw;
+}
+#iframeHolder{
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/Player.css">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <title>StreamSee</title>
+</head>
+<body>
+    <div id="parent">
+        <div id="avatarDiv">
+            <img src="/img/5f51f696241415.5eb2d19f8b3e1.png" style="width: 50px; border-radius: 80%;  border:2px solid rgb(255, 0, 0);" height="50px"; id="avatar" alt="">
+            <p id="movieName">Movie Name</p>
+        </div>
+        <div id="iframeHolder">
+            <p id="streamLogo" style="font-size: large; font-weight: bold; position: fixed; margin-right: 65%
+            ;margin-top: 8%;">Stream<span style="color: red;">See</span></p>
+            <iframe id="movieFrame" sandbox="allow-presentation allow-scripts allow-popups allow-pointer-lock allow-same-origin" src="" frameborder="0"  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen Access-Control-Allow-Origin>
+
+            </iframe>
+        </div>
+        <div id="othersHolder">
+
+        </div>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+<script src="/js/Player.js"></script>
+</html>

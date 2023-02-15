@@ -14,6 +14,27 @@ backButton.onclick = ()=> {
     window.history.back();
   }
 
+  // encrypt params
+function encryptParams(params) {
+    const key = "8L1pD4twi4YJZoWQz8FvNq";
+    const encrypted = CryptoJS.AES.encrypt(JSON.stringify(params), key).toString();
+    return encodeURIComponent(encrypted);
+  }
+
+//   movie item play button clicked to  view trailer
+  function openSelectedMedia(value,mediaType){
+    const encryptedParams = {
+        id:value,
+        type:mediaType
+    };
+    const encryptedValue = encryptParams(encryptedParams);
+    window.location=`/html/Player.html?param=${encryptedValue}`;
+}
+
+playButton.onclick = ()=>{
+    openSelectedMedia(filmId,paramMediaType);
+}
+
 // decryption algorithm
 function decryptParams(encryptedParams) {
     const key = "c7974249b02fhiukjn7";
