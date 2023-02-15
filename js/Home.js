@@ -8,6 +8,26 @@ const popularTag = document.getElementById("popularTag");
 const trendingTag = document.getElementById("trendingTag");
 const upComingTag = document.getElementById("comingSoonTag");
 const cover = document.getElementById("cover");
+const myModal = document.getElementById("myModal");
+const searchField = document.getElementById("searchField");
+
+
+
+// Get the close button and add an event listener
+var close = document.getElementsByClassName("close")[0];
+close.addEventListener("click", function() {
+  myModal.style.display = "none";
+});
+
+// Add an event listener to the button
+searchButton.addEventListener("click", function() {
+  myModal.style.display = "block";
+});
+
+//Add an event listener to the search field. Just for styling purposes
+searchField.addEventListener("", function() {
+  searchField.style.borderColor= "transparent";
+})
 
 
 // variables
@@ -104,15 +124,27 @@ async function setCover() {
 
   //  }
    popularTag.onclick=() =>{
-    window.location="/html/Category.html?param=popular";
+    const params = {
+        type: "popular",
+    };
+    const encryptedParams = encryptParams(params)
+    window.location=`/html/Category.html?param=${encryptedParams}`;
 
    }
    trendingTag.onclick=() =>{
-    window.location="/html/Category.html?param=trending";
+    const params = {
+        type: "trending",
+    };
+    const encryptedParams = encryptParams(params)
+    window.location=`/html/Category.html?param=${encryptedParams}`;
 
    }
    upComingTag.onclick=() =>{
-    window.location="/html/Category.html?param=upcoming";
+    const params = {
+        type: "upcoming",
+    };
+    const encryptedParams = encryptParams(params)
+    window.location=`/html/Category.html?param=${encryptedParams}`;
 
    }
 
