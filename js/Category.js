@@ -2,9 +2,17 @@ let categoryParent = document.getElementById("categoryHolder");
 let category = document.getElementById("category");
 let categoryTitle = document.getElementById("categoryTitle");
 
+function decryptParams(encryptedParams) {
+    const key = "8L1pD4twi4YJZoWQz8FvNq";
+    const decrypted = CryptoJS.AES.decrypt(decodeURIComponent(encryptedParams), key).toString(CryptoJS.enc.Utf8);
+    return JSON.parse(decrypted);
+}
+
 // gets search keyword from the browser's top link from the search area
-let paramTitle = new URLSearchParams(window.location.search).get("param");
-let loadedMovies = [];
+let encryptedParams = new URLSearchParams(window.location.search).get("param");
+
+// decrypt html parameters
+const paramTitle = decryptParams(encryptedParams).type;
 
 
 // api prerequisites
@@ -46,16 +54,29 @@ async function loadSelectedCategory(element,url,movie_id,type){
     }
 }
 
+// encrypt params
+function encryptParams(params) {
+    const key = "c7974249b02fhiukjn7";
+    const encrypted = CryptoJS.AES.encrypt(JSON.stringify(params), key).toString();
+    return encodeURIComponent(encrypted);
+  }
+
 
 // function to load when movie item is clicked
 
-function openSelectedMedia(value){
-    console.log("This is clicked data ",value);
+function openSelectedMedia(value,mediaType){
+    const encryptedParams = {
+        name:value,
+        type:mediaType
+    };
+    const encryptedValue = encryptParams(encryptedParams);
+    window.location=`/html/Overview.html?param=${encryptedValue}`;
 }
 
 // Movie result template : kindly look at tvLoad function comments 
 function movieLoad(element,data,movie_id){
     let capializedTitle = paramTitle.charAt(0).toUpperCase() + paramTitle.substring(1);
+    let mediaType="movie";
     categoryTitle.innerText=capializedTitle;
     element.innerHTML+=
     `
@@ -70,7 +91,7 @@ function movieLoad(element,data,movie_id){
             border-radius:6% 6% 0% 0%;
             cursor:pointer;
             "
-            onclick="openSelectedMedia('${data.results[movie_id].title}')"
+            onclick="openSelectedMedia('${data.results[movie_id].title}','${mediaType}')"
         >
         <div style=
         "
@@ -107,6 +128,7 @@ function movieLoad(element,data,movie_id){
 // tv results template : the api responds with different json query methods for movies and tv so this called for different templates : same for movies just above
 function tvLoad(element,data,movie_id){
     let capializedTitle = paramTitle.charAt(0).toUpperCase() + paramTitle.substring(1);
+    let mediaType="tv";
     if(capializedTitle.toLowerCase()==="tvshows"){
         capializedTitle="TV Shows"
     }
@@ -124,6 +146,7 @@ function tvLoad(element,data,movie_id){
             border-radius:6% 6% 0% 0%;
             cursor:pointer;
             "
+            onclick="openSelectedMedia('${data.results[movie_id].name}','${mediaType}')"
         >
         <div style=
         "

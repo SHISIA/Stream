@@ -15,6 +15,14 @@ const cover = document.getElementById("cover");
 let comingSoonUrl = "https://api.themoviedb.org/3/movie/upcoming?api_key=f3fa058a0294c6f7b1d786efd12e5aa0&language=en-US&page=1&include_adult=false";
 
 
+// encrypt params
+function encryptParams(params) {
+    const key = "8L1pD4twi4YJZoWQz8FvNq";
+    const encrypted = CryptoJS.AES.encrypt(JSON.stringify(params), key).toString();
+    return encodeURIComponent(encrypted);
+  }
+  
+
 // content Divs that will hold movies
 const previewDiv = document.getElementById("previewDiv");
 const comingSoonDiv = document.getElementById("comingSoonDiv");
@@ -77,10 +85,19 @@ async function setCover() {
 
 // tag event listeners to load movies specified by those tags
    moviesTag.onclick=() =>{
-    window.location="/html/Category.html?param=movies";
+   const params = {
+        type: "movies",
+    };
+      
+    const encryptedParams = encryptParams(params);
+    window.location=`/html/Category.html?param=${encryptedParams}`;
    }
    tvShowsTag.onclick=() =>{
-    window.location="/html/Category.html?param=tvshows";
+    const params = {
+        type: "tvshows",
+    };
+    const encryptedParams = encryptParams(params)
+    window.location=`/html/Category.html?param=${encryptedParams}`;
    }
   //  actorsTag.onclick=() =>{
   //   window.location="/html/Category.html?param=people";

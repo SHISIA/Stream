@@ -12,6 +12,8 @@ body{
 #category{
     display: flex;
     flex-wrap: wrap;
+    margin: 4%;
+    text-align: center;
 }
 #categoryTitle{
     color: aliceblue;
