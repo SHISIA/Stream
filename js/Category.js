@@ -1,6 +1,8 @@
 let categoryParent = document.getElementById("categoryHolder");
 let category = document.getElementById("category");
 let categoryTitle = document.getElementById("categoryTitle");
+let backButton = document.getElementById("backButton");
+
 
 function decryptParams(encryptedParams) {
     const key = "8L1pD4twi4YJZoWQz8FvNq";
@@ -29,8 +31,7 @@ let popularTV = "https://api.themoviedb.org/3/tv/popular?"+api_key;
 let upcoming = "https://api.themoviedb.org/3/movie/upcoming?"+api_key;
 
 
-
-// loads the results for the clicked on tag
+// loads the results for the clicked on home tag
 async function loadSelectedCategory(element,url,movie_id,type){
     try {
         let response = await fetch(`${url}`)
@@ -61,6 +62,10 @@ function encryptParams(params) {
     return encodeURIComponent(encrypted);
   }
 
+//   back button: to previous page
+  backButton.onclick = ()=> {
+    window.history.back();
+  }
 
 // function to load when movie item is clicked
 
@@ -78,29 +83,30 @@ function movieLoad(element,data,movie_id){
     let capializedTitle = paramTitle.charAt(0).toUpperCase() + paramTitle.substring(1);
     let mediaType="movie";
     categoryTitle.innerText=capializedTitle;
+    document.body.style.backgroundImage = `url(${imagePath}${data.results[0].poster_path})`;
     element.innerHTML+=
     `
     <div style="
-    width:50%;
-    margin-bottom:20px;
-   
-    "><img src="${imagePath}${data.results[movie_id].poster_path}" 
+        width:50%;
+        margin-bottom:20px;
+        ">
+        <img src="${imagePath}${data.results[movie_id].poster_path}" 
             style=
             "width:130px;
             height:180px;
             border-radius:6% 6% 0% 0%;
             cursor:pointer;
             "
-            onclick="openSelectedMedia('${data.results[movie_id].title}','${mediaType}')"
+            onclick="openSelectedMedia('${data.results[movie_id].id}','${mediaType}')"
         >
         <div style=
-        "
-        background-color:#1C162B;
-        width:130px;
-        margin-top:-20px;
-        height:80px;
-        border-radius:0 0 10px 10px;
-        ">
+            "
+            background-color:#1C162B;
+            width:130px;
+            margin-top:-20px;
+            height:80px;
+            border-radius:0 0 10px 10px;
+            ">
             <p
             style=
             "
@@ -133,12 +139,13 @@ function tvLoad(element,data,movie_id){
         capializedTitle="TV Shows"
     }
     categoryTitle.innerText=capializedTitle;
+    document.body.style.backgroundImage = `url(${imagePath}${data.results[0].poster_path})`;
     element.innerHTML+=
     `
     <div style="
-    width:50%;
-    margin-bottom:20px;
-    ">
+        width:50%;
+        margin-bottom:20px;
+        ">
         <img src="${imagePath}${data.results[movie_id].poster_path}" 
             style=
             "width:130px;
@@ -146,16 +153,16 @@ function tvLoad(element,data,movie_id){
             border-radius:6% 6% 0% 0%;
             cursor:pointer;
             "
-            onclick="openSelectedMedia('${data.results[movie_id].name}','${mediaType}')"
+            onclick="openSelectedMedia('${data.results[movie_id].id}','${mediaType}')"
         >
         <div style=
-        "
-        background-color:#1C162B;
-        width:130px;
-        margin-top:-20px;
-        height:80px;
-        border-radius:0 0 10px 10px;
-        ">
+            "
+            background-color:#1C162B;
+            width:130px;
+            margin-top:-20px;
+            height:80px;
+            border-radius:0 0 10px 10px;
+            ">
             <p
             style=
             "
