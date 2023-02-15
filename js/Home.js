@@ -10,14 +10,31 @@ const upComingTag = document.getElementById("comingSoonTag");
 const cover = document.getElementById("cover");
 const myModal = document.getElementById("myModal");
 const searchField = document.getElementById("searchField");
+const menuModal = document.getElementById("menuModal");
+
 
 
 
 // Get the close button and add an event listener
 var close = document.getElementsByClassName("close")[0];
+var menuClose = document.getElementsByClassName("close")[1];
+
 close.addEventListener("click", function() {
   myModal.style.display = "none";
 });
+
+menuClose.addEventListener("click", function() {
+    menuModal.style.display = "none";
+    menuButton.style.display = "block";
+
+  });
+
+  // Add an event listener to the button
+menuButton.addEventListener("click", function() {
+    menuModal.style.display = "block";
+    menuButton.style.display = "none"
+    menuModal.style.marginTop="15%";
+  });
 
 // Add an event listener to the button
 searchButton.addEventListener("click", function() {

@@ -33,24 +33,45 @@
     <!-- pops up search field when search button is clicked.  -->
     <div id="myModal" class="modal">
         <div class="modal-content">
-          <span class="close">&times;</span>
-          <input type="text" name="" placeholder="Search..." id="searchField">
+            <span class="close">&times;</span>
+            <input type="text" name="" placeholder="Search..." id="searchField">
+        </div>
+    </div>
+
+    <!-- holds the menu bar -->
+    <div id="menuModal" class="modal">
+        <div class="menuModal-content">
+          
+          <ul>
+            <li>
+                <span class="close" id="menuClose">&times;</span>
+            </li>
+            <li>
+                <button class="navButton" id="about">About</button>
+            </li>
+            <li>
+                <button class="navButton" id="hire">Hire Me</button>
+            </li>
+            <li>
+                <button class="navButton" id="message">Message Me</button>
+            </li>
+          </ul>
         </div>
       </div>
 
-
-
     <!-- top div holding the number one trendig movie . The first poster in the   -->
     <div id="previewDiv">
-        <img src=""  alt="" id="cover">
+        <img src="" alt="" id="cover">
     </div>
     <!-- Div holding the Upcoming movies/films -->
     <div id="comingSoonDivParent">
         <div id="comingSoonMenuHolder" style="display: flex;">
             <p id="comingSoon">Upcoming <span class="titleSpan">films</span></p>
-        <button type="submit" id="moreBtn" style="width: 30px; height: 30px; margin-top: 10%; margin-left: 20%; color: whitesmoke; background-color: transparent; display: flex; justify-content: space-between; cursor: pointer;border-color: transparent;">More
-            <i  class="fa-solid fa-angle-right" style="color: aliceblue; padding:2px 1px 1px 10px;cursor: pointer;"></i>
-        </button>
+            <button type="submit" id="moreBtn"
+                style="width: 30px; height: 30px; margin-top: 10%; margin-left: 20%; color: whitesmoke; background-color: transparent; display: flex; justify-content: space-between; cursor: pointer;border-color: transparent;">More
+                <i class="fa-solid fa-angle-right"
+                    style="color: aliceblue; padding:2px 1px 1px 10px;cursor: pointer;"></i>
+            </button>
         </div>
         <div id="comingSoonDiv">
 
@@ -61,30 +82,34 @@
         <div id="trendingMenuHolder" style="display: flex;">
             <p id="trending">Trending <span class="titleSpan">Movies</span></p>
             <!-- more button, leads to movies list -->
-        <button type="submit" id="moreBtn" style="width: 30px; height: 30px; margin-top: 10%; margin-left: 8%; color: whitesmoke; background-color: transparent; display: flex; justify-content: space-between; cursor: pointer; border-color: transparent;">More
-            <i  class="fa-solid fa-angle-right" style="color: aliceblue; padding:2px 1px 1px 10px;cursor: pointer;"></i>
-        </button>
+            <button type="submit" id="moreBtn"
+                style="width: 30px; height: 30px; margin-top: 10%; margin-left: 8%; color: whitesmoke; background-color: transparent; display: flex; justify-content: space-between; cursor: pointer; border-color: transparent;">More
+                <i class="fa-solid fa-angle-right"
+                    style="color: aliceblue; padding:2px 1px 1px 10px;cursor: pointer;"></i>
+            </button>
         </div>
         <div id="trendingDiv">
 
         </div>
-        <div id="infoSectio" style="margin-top:10%; padding: 0%; width: 100vw; height: 50vw; background-color: transparent;">
+        <div id="infoSectio"
+            style="margin-top:10%; padding: 0%; width: 100vw; height: 50vw; background-color: transparent;">
             <div id="Contact" style="text-align: center;">
-               <span style="color: grey;"> Contact us on </span>
+                <span style="color: grey;"> Contact us on </span>
                 <br>
                 <br>
-                 <span style="color: red;">Email:</span> <span style="color: rgb(191, 176, 176);">jamesshisia6@gmail.com</span>
-                 <br>
-                 <br>
-                 <br>
-                 <span style="color: red;">Calls</span> <span style="color: rgb(203, 186, 186);">0780809290</span>
+                <span style="color: red;">Email:</span> <span
+                    style="color: rgb(191, 176, 176);">jamesshisia6@gmail.com</span>
+                <br>
+                <br>
+                <br>
+                <span style="color: red;">Calls</span> <span style="color: rgb(203, 186, 186);">0780809290</span>
             </div>
             <div id="recognitionDiv" style="text-align: center;">
                 <p style="text-align: center; color: rgb(255, 255, 255);">
-                    Data courtesy of <br> 
+                    Data courtesy of <br>
                     <span style="color: aqua;">The Movie Database </span>
-                  </p>
-                  <img src="/img/tmdb.svg" style="width: 80px;" alt="">
+                </p>
+                <img src="/img/tmdb.svg" style="width: 80px;" alt="">
             </div>
         </div>
     </div>
