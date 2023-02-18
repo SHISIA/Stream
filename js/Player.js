@@ -22,17 +22,35 @@ let tvSearchLink = `https://api.themoviedb.org/3/tv/${movie_Id}?api_key=f3fa058a
 let linkHeader = "https://www.youtube.com/embed/";
 // variables and components declared
 
-// for movie search info : specifically to obtain similar movies to the one selected
+// for movie search info : for latest movies to populate space below trailer
 let api_key = "api_key=f3fa058a0294c6f7b1d786efd12e5aa0";
-let url = "https://api.themoviedb.org/3/movie/" + movie_Id + "/similar?" + api_key + "&language=en-US&page=1&include_adult=false&query=";
-let urlTv = "https://api.themoviedb.org/3/tv/" + movie_Id + "/similar?" + api_key + "&language=en-US&page=1&include_adult=false&query=";
+let urlMovie = "https://api.themoviedb.org/3/movie/now_playing?" + api_key + "&language=en-US&page=1&include_adult=false&query=";
+
+let urlTv = "https://api.themoviedb.org/3/tv/top_rated?" + api_key + "&language=en-US&page=1&include_adult=false&query=";
 
 
 // decryption algorithm
 function decryptParams(encryptedParams) {
-    const key = "8L1pD4twi4YJZoWQz8FvNq";
+    const key = "c7974249b02fhiukjn7";
     const decrypted = CryptoJS.AES.decrypt(decodeURIComponent(encryptedParams), key).toString(CryptoJS.enc.Utf8);
     return JSON.parse(decrypted);
+}
+
+//preview selected film item
+function openSelectedMedia(value, mediaType) {
+    const encryptedParams = {
+        name: value,
+        type: mediaType
+    };
+    const encryptedValue = encryptParams(encryptedParams);
+    window.location = `/html/Overview.html?param=${encryptedValue}`;
+}
+
+// encrypt params
+function encryptParams(params) {
+    const key = "c7974249b02fhiukjn7";
+    const encrypted = CryptoJS.AES.encrypt(JSON.stringify(params), key).toString();
+    return encodeURIComponent(encrypted);
 }
 
 // function to load trailer
@@ -43,13 +61,13 @@ async function loadTrailer() {
         updateInfo();
 
     } else {
-        myObject = await fetch(`${tvTrailerLink}`); 
+        myObject = await fetch(`${tvTrailerLink}`);
         updateInfoTV();
 
     }
     let response = await myObject.json();
     checkVideoType(response);
-    for(let index=0;index<=19;index++){
+    for (let index = 0; index <= 19; index++) {
         loadSimilarMovies(index);
     }
 }
@@ -86,7 +104,6 @@ async function updateInfoTV() {
 // set trailer iframe with embedded youtube video
 function setAndPlayVideo(videoLink) {
     movieFrame.src = videoLink;
-
     movieFrame.onload = function () {
         movieFrame.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
     };
@@ -97,7 +114,7 @@ async function loadSimilarMovies(movieIndex) {
     let response;
     let movieTitle;
     if (mediaType === "movie") {
-        myObject = await fetch(`${url}`);
+        myObject = await fetch(`${urlMovie}`);
         response = await myObject.json();
         movieTitle = response.results[movieIndex].title;
     } else {
@@ -105,7 +122,8 @@ async function loadSimilarMovies(movieIndex) {
         response = await myObject.json();
         movieTitle = response.results[movieIndex].name;
     }
-    console.log("similar ",response);
+    console.log("similar id ", response.results[movieIndex].id);
+
     similarMovies.innerHTML +=
         `
         <div style=
@@ -125,11 +143,12 @@ async function loadSimilarMovies(movieIndex) {
             cursor:pointer;
             border:.5px solid grey;
             "
+            onclick="openSelectedMedia('${response.results[movieIndex].id}','${mediaType}')"
             >
             </div>
             <div style=
-            "
-            text-align:left;
+            " 
+            text-align:left; 
             overflow:hidden;
             "
             >
@@ -138,12 +157,13 @@ async function loadSimilarMovies(movieIndex) {
             margin-top:5%;
             margin-bottom:11%;
             font-size:20px;
+            color:red;
             ">${movieTitle}</p>
             <p style=
             "
             font-size:10px;
             margin-top:-8%;
-            color:grey;
+            color:white;
             ">
                 ${response.results[movieIndex].overview}
             </p>

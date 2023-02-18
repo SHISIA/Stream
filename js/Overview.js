@@ -16,7 +16,7 @@ backButton.onclick = ()=> {
 
   // encrypt params
 function encryptParams(params) {
-    const key = "8L1pD4twi4YJZoWQz8FvNq";
+    const key = "c7974249b02fhiukjn7";
     const encrypted = CryptoJS.AES.encrypt(JSON.stringify(params), key).toString();
     return encodeURIComponent(encrypted);
   }
@@ -47,10 +47,6 @@ let imagePath = "https://image.tmdb.org/t/p/w500";
 let api_key = "api_key=f3fa058a0294c6f7b1d786efd12e5aa0";
 let url = "https://api.themoviedb.org/3/movie/" + filmId + "?" + api_key + "&language=en-US&page=1&include_adult=false&query=";
 let urlTv = "https://api.themoviedb.org/3/tv/" + filmId + "?" + api_key + "&language=en-US&page=1&include_adult=false&query=";
-
-
-
-console.log("data ", filmId, "data2 ", paramMediaType);
 
 async function loadResults() {
     try {

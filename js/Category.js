@@ -68,7 +68,6 @@ function encryptParams(params) {
   }
 
 // function to load when movie item is clicked
-
 function openSelectedMedia(value,mediaType){
     const encryptedParams = {
         name:value,
