@@ -10,10 +10,10 @@ const upComingTag = document.getElementById("comingSoonTag");
 const cover = document.getElementById("cover");
 const myModal = document.getElementById("myModal");
 const searchField = document.getElementById("searchField");
+const search = document.getElementById("search");
 const menuModal = document.getElementById("menuModal");
-
-
-
+const moreBtnTrending = document.getElementById("moreBtnTrending");
+const moreBtn = document.getElementById("moreBtn");
 
 // Get the close button and add an event listener
 var close = document.getElementsByClassName("close")[0];
@@ -46,6 +46,18 @@ searchField.addEventListener("", function() {
   searchField.style.borderColor= "transparent";
 })
 
+//searching movie via searchbox :: Gets the field value and sends it encrypted 
+// to results view page
+search.addEventListener("click", function() {
+  if(!searchField.value==null || !searchField.value==""){
+    const params = {
+      term: searchField.value
+  };
+  const encryptedParams = encryptParams(params)
+  window.location=`/html/SearchResults.html?param=${encryptedParams}`;
+  }
+})
+
 
 // variables
 // let name , releaseDate,ratings , fullImage, trailer, backdropImage, popularity,genre;
@@ -54,7 +66,7 @@ let comingSoonUrl = "https://api.themoviedb.org/3/movie/upcoming?api_key=f3fa058
 
 // encrypt params
 function encryptParams(params) {
-    const key = "8L1pD4twi4YJZoWQz8FvNq";
+    const key = "c7974249b02fhiukjn7";
     const encrypted = CryptoJS.AES.encrypt(JSON.stringify(params), key).toString();
     return encodeURIComponent(encrypted);
   }
@@ -71,54 +83,20 @@ let trending = "https://api.themoviedb.org/3/trending/movie/day?api_key=f3fa058a
 let pageInitial = "&page=";
 let trendingShows = "https://api.themoviedb.org/3/trending/tv/day?api_key=f3fa058a0294c6f7b1d786efd12e5aa0";
 
-// logic, functions and classes
-
-// movie entity
-// class Movie{
-//     // constructor(name, releaseDate,ratings,fullImage,trailer,backdropImage,popularity,genre) {
-//     //     this.name = name;
-//     //     this.releaseDate = releaseDate;
-//     //     this.ratings=ratings;
-//     //     this.fullImage=fullImage;
-//     //     this.trailer=trailer;
-//     //     this.backdropImage=backdropImage;
-//     //     this.popularity=popularity;
-//     //     this.genre=genre;
-//     //   }
-//     //   responsible for the top preview
-
-//     constructor(name){
-//         this.name=name;
-//     }
-
-//       set name(value){
-//         this.name=value
-//       }
-//     // Shows more details about the movie
-//       showDetails(){
-
-//       }
-
-//       get name(){
-//         return this.name;
-//       }
-
-//     //   plays the movie trailer
-//     playTrailer(){
-
-//     }
-// }
-
-
 //set up cover movie from trending
 async function setCover() {
   let response = await fetch(`${trending}`)
   let data = await response.json();
   cover.src = `${imagePath}${data.results[1].poster_path}`;
-//   description.innerText=`${myText.results[9].overview}`;
-//   title.innerText = `${myText.results[9].original_title}`;
+  cover.style.cursor="pointer";
+  cover.setAttribute("class", data.results[1].id);
 }
 
+// cover.onclick=openSelectedMedia(data.results[1].id,"movie")
+
+cover.onclick = ()=>{
+  openSelectedMedia(cover.className,"movie")
+}
 
 // tag event listeners to load movies specified by those tags
    moviesTag.onclick=() =>{
@@ -148,7 +126,7 @@ async function setCover() {
     window.location=`/html/Category.html?param=${encryptedParams}`;
 
    }
-   trendingTag.onclick=() =>{
+   trendingTag.onclick = () =>{
     const params = {
         type: "trending",
     };
@@ -165,11 +143,24 @@ async function setCover() {
 
    }
 
+   // function to load when movie item is clicked
+function openSelectedMedia(value,mediaType){
+  const encryptedParams = {
+      name:value,
+      type:mediaType
+  };
+  const encryptedValue = encryptParams(encryptedParams);
+  window.location=`/html/Overview.html?param=${encryptedValue}`;
+}
+
+
 
 async function loadSpecificCategory(parentElement,url,movie_id){
     let response = await fetch(`${url}`)
     let data = await response.json();
+    let mediaType;
     console.log("data ",data);
+      mediaType="movie";
     parentElement.innerHTML+=
     `
     <div style=
@@ -182,7 +173,9 @@ async function loadSpecificCategory(parentElement,url,movie_id){
             "width:130px;
             height:180px;
             border-radius:6% 6% 0% 0%;
+            cursor:pointer;
             "
+            onclick=openSelectedMedia('${data.results[movie_id].id}','${mediaType}');
         >
         <div style=
         "

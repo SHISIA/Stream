@@ -109,6 +109,8 @@ function setAndPlayVideo(videoLink) {
     };
 }
 
+
+
 async function loadSimilarMovies(movieIndex) {
     let myObject;
     let response;

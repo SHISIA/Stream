@@ -34,13 +34,13 @@ body::before {
 }
 
 /* div that holds category results from search */
-#category{
+#category,#results{
     display: flex;
     flex-wrap: wrap;
     margin-left: 5%;
     justify-content: center;
 }
-#categoryTitle{
+#categoryTitle,#searchTitle{
     color: aliceblue;
     font-size: 28px;
     font-family: 'Josefin Slab', serif;

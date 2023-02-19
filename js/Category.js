@@ -5,12 +5,12 @@ let backButton = document.getElementById("backButton");
 
 
 function decryptParams(encryptedParams) {
-    const key = "8L1pD4twi4YJZoWQz8FvNq";
+    const key = "c7974249b02fhiukjn7";
     const decrypted = CryptoJS.AES.decrypt(decodeURIComponent(encryptedParams), key).toString(CryptoJS.enc.Utf8);
     return JSON.parse(decrypted);
 }
 
-// gets search keyword from the browser's top link from the search area
+// gets search keyword from the browser's top link input area
 let encryptedParams = new URLSearchParams(window.location.search).get("param");
 
 // decrypt html parameters
