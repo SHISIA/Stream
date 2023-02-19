@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,8 +8,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/Category.css">
+    <link rel="stylesheet" href="/css/Home.css">
     <title>StreamSee</title>
-</head> 
+</head>
+
 <body>
     <div id="navBar">
         <button type="submit" id="backButton">
@@ -20,6 +23,19 @@
             </i>
         </button>
     </div>
+    <!-- pops up search field when search button is clicked.  -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <input type="text" name="" placeholder="Search..." id="searchField">
+            <button id="search"
+                style="background-color: transparent;text-align: center; cursor: pointer;color: aliceblue; width: 30%; height: 10px;border-color: black; border-radius: 10px;">
+                <i class="fa-solid fa-search" style="font-size: large; color: rgb(254, 254, 254);"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- result and search term are displayed in below components -->
     <div id="categoryHolder">
         <p id="searchTitle">Loading...</p>
         <div id="results">
@@ -30,4 +46,5 @@
 <!-- <script src="/js/Home.js"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 <script src="/js/SearchResults.js"></script>
+
 </html>

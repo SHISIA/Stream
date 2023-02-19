@@ -1,24 +1,36 @@
+//elements
 let similar = document.getElementById("similarMovies");
 let title = document.getElementById("title");
 let playButton = document.getElementById("playButton");
 let summary = document.getElementById("description");
 let backButton = document.getElementById("backButton");
-let search = document.getElementById("searchButton");
-let release_date = document.getElementById("release_date");
+// const searchButton = document.getElementById("searchButton"); 
+// const search = document.getElementById("search");
+const release_date = document.getElementById("release_date");
 
+
+// used term variables and search terms(parameters)
 let encryptedParams = new URLSearchParams(window.location.search).get("param");
 let filmId = decryptParams(encryptedParams).name;
 let paramMediaType = decryptParams(encryptedParams).type;
 
-backButton.onclick = ()=> {
-    window.history.back();
-  }
-
   // encrypt params
-function encryptParams(params) {
+  function encryptParams(params) {
     const key = "c7974249b02fhiukjn7";
     const encrypted = CryptoJS.AES.encrypt(JSON.stringify(params), key).toString();
     return encodeURIComponent(encrypted);
+  };
+
+  // decryption algorithm
+function decryptParams(encryptedParams) {
+    const key = "c7974249b02fhiukjn7";
+    const decrypted = CryptoJS.AES.decrypt(decodeURIComponent(encryptedParams), key).toString(CryptoJS.enc.Utf8);
+    return JSON.parse(decrypted);
+}
+
+
+backButton.onclick = ()=> {
+    window.history.back();
   }
 
 //   movie item play button clicked to  view trailer
@@ -35,12 +47,7 @@ playButton.onclick = ()=>{
     openSelectedMedia(filmId,paramMediaType);
 }
 
-// decryption algorithm
-function decryptParams(encryptedParams) {
-    const key = "c7974249b02fhiukjn7";
-    const decrypted = CryptoJS.AES.decrypt(decodeURIComponent(encryptedParams), key).toString(CryptoJS.enc.Utf8);
-    return JSON.parse(decrypted);
-}
+
 
 // api prerequisites
 let imagePath = "https://image.tmdb.org/t/p/w500";

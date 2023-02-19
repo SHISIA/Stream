@@ -2,7 +2,11 @@
 const searchButton = document.getElementById("searchButton");
 const backButton = document.getElementById("backButton");
 const results = document.getElementById("results");
+const searchField = document.getElementById("searchField");
+
 const searchTitle = document.getElementById("searchTitle");
+var close = document.getElementsByClassName("close")[0];
+
 
 //links 
 let api_key = "api_key=f3fa058a0294c6f7b1d786efd12e5aa0";
@@ -14,6 +18,33 @@ function decryptParams(encryptedParams) {
     const decrypted = CryptoJS.AES.decrypt(decodeURIComponent(encryptedParams), key).toString(CryptoJS.enc.Utf8);
     return JSON.parse(decrypted);
 }
+
+// close x button
+close.addEventListener("click", function() {
+    myModal.style.display = "none";
+  });
+
+// Add an event listener to the button
+searchButton.addEventListener("click", function() {
+    myModal.style.display = "block";
+  });
+
+//Add an event listener to the search field. Just for styling purposes
+searchField.addEventListener("", function() {
+  searchField.style.borderColor= "transparent";
+})
+
+//searching movie via searchbox :: Gets the field value and sends it encrypted 
+// to results view page
+search.addEventListener("click", function() {
+    if(!searchField.value==null || !searchField.value==""){
+      const params = {
+        term: searchField.value
+    };
+    const encryptedParams = encryptParams(params)
+    window.location=`/html/SearchResults.html?param=${encryptedParams}`;
+    }
+  })
 
 //searchTerm from link
 // const term = window.location.href.replace();
@@ -29,7 +60,6 @@ async function resultLoad(element,movie_id,mediaType){
     let searchLink = "https://api.themoviedb.org/3/search/"+mediaType+"?"+api_key+"&language=en-US&page=1&include_adult=false&query="+term;
     let  object = await fetch(`${searchLink}`);
     let data = await object.json();
-    console.log("jnjke ",data);
     let name;
     let release_date ;
     let capializedTitle = term.charAt(0).toUpperCase() + term.substring(1);
