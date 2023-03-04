@@ -259,15 +259,21 @@ input {
 #trendingDiv2,
 #trendingDiv3,
 #comingSoonDiv2,
-#comingSoonDiv3 {
+#comingSoonDiv3{
   display: none;
 }
 
+.desktopPreview{
+  display: none;
+}
 
 
 /**Optimization for large screen**/
 @media only screen and (min-width: 768px) {
 
+  body{
+    font-family: 'Josefin Slab', serif;
+  }
 
   /* For desktop: */
 
@@ -284,7 +290,7 @@ input {
     color: red;
   }
 
-  #previewDiv {
+  #previewDiv{
     display: none;
   }
 
@@ -465,15 +471,83 @@ input {
     margin-left: 0%;
   }
 
-  #comingSoonMenuHolder {
+  #comingSoonMenuHolder{
     display: inline-block;
     white-space: nowrap;
   }
+  /* show the movie hover preview in Desktop  */
+  .desktopPreview {
+    display:flex;
+    justify-content: left;
+    margin-left: 5%;
+    border: solid 1px red;
+    padding: 5px;
+    margin-right: 5%;
+    margin-bottom: 3%;
+    border-radius: 5px;
+  }
+/* preview image */
+  #desktopPreviewCover{
+    width: 500px;
+    height: 350px;
+  }
+  /* cover info */
+  #prevInfo{
+    margin-left: 1%;
+    background-color:rgb(0, 0, 0);
+    z-index: 1;
+  }
+  /* cover preview title */
+  #prevTitle{
+    font-size: 35px;
+    margin: 0;
+    font-weight: bolder;
+    line-height: 35px;
+    letter-spacing: 5px;
+    margin-top: 5%;
+  }
+  /* cover preview rating text */
+  #prevRating{
+    font-size: 20px;
+    margin-top: 0%;
+  }
 
+  /* progressBar */
+  #prevProgress{
+    margin-bottom: 2%;
+    width: 250px;
+  }
+
+  /* progress fill color */
+  progress::-webkit-progress-value {
+    background-color: rgb(67, 60, 98);
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  }
   /**disabled the more button both in the upcoming films and trending movies**/
   #moreBtn,
   #moreBtnTrending {
     display: none;
+  }
+  /* rating value */
+  #prevRatingValue{
+    margin: 0%;
+    font-size: 20px;
+    color: red;
+  }
+
+  /* description of the hovered movie */
+  #description{
+    max-width: 80%;
+    font-size: 18px;
+    margin-top:0%;
+  }
+
+  /* ratings star icons*/
+  .rating{
+    margin: 0%;
+    width: 20px;
+    height: 20px;
   }
 
 }
