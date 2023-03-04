@@ -12,13 +12,14 @@
 </head>
 
 <body>
+    <!-- div holding the top menu items  -->
     <div id="topBar">
         <button type="submit" id="menuButton">
             <i class="fa-solid fa-bars" style="font-size: large; color: aliceblue;"></i>
         </button>
         <p id="siteName">Stream<span id="titlePart">See</span></p>
         <button type="submit" id="searchButton">
-            <i class="fa-solid fa-search" style="font-size: large; color: aliceblue;"></i>
+            <i class="fa-solid fa-search searchIcon" style="font-size: large; color: aliceblue;"></i>
         </button>
     </div>
     <div id="tagMenu">
@@ -28,6 +29,102 @@
         <button type="submit" id="popularTag" class="tag">Popular</button>
         <button type="submit" id="trendingTag" class="tag">Trending</button>
         <button type="submit" id="comingSoonTag" class="tag">Coming Soon</button>
+    </div>
+
+    <!-- div holding the top selected movie for the day only on screen view -->
+    <div id="topMovieDiv">
+        <div class="imgDiv">
+            <img src="/img/bahubali.jpg" alt="" class="topMovie">
+            <div class="infoDiv">
+                <p class="coverName">Name</p>
+                <p class="coverInfo">Information for the movie</p>
+            </div>
+            
+        </div>
+        <div class="imgDiv">
+            <img src="/img/keanu.jpg" alt="" class="topMovie">
+            <div class="infoDiv">
+                <p class="coverName">Name</p>
+                <p class="coverInfo">Information for the movie</p>
+            </div>
+            
+        </div>
+        <div class="imgDiv">
+            <img src="/img/cpt.jpg" alt="" class="topMovie">
+            <div class="infoDiv">
+                <p class="coverName">Name</p>
+                <p class="coverInfo">Information for the movie</p>
+            </div>
+            
+        </div>
+        <div class="imgDiv">
+            <img src="/img/jason.jpg" alt="" class="topMovie">
+            <div class="infoDiv">
+                <p class="coverName">Name</p>
+                <p class="coverInfo">Information for the movie</p>
+            </div>
+            
+        </div>
+        <div class="imgDiv">
+            <img src="/img/vin.jpg" alt="" class="topMovie">
+            <div class="infoDiv">
+                <p class="coverName">Name</p>
+                <p class="coverInfo">Information for the movie</p>
+            </div>
+            
+        </div>
+        <div class="imgDiv">
+            <img src="/img/jason.jpg" alt="" class="topMovie">
+            <div class="infoDiv">
+                <p class="coverName">Name</p>
+                <p class="coverInfo">Information for the movie</p>
+            </div>
+            
+        </div>
+        <div class="imgDiv">
+            <img src="/img/man.jpg" alt="" class="topMovie">
+            <div class="infoDiv">
+                <p class="coverName">Name</p>
+                <p class="coverInfo">Information for the movie</p>
+            </div>
+            
+        </div>
+        <div class="imgDiv">
+            <img src="/img/tony.jpg" alt="" class="topMovie">
+            <div class="infoDiv">
+                <p class="coverName">Name</p>
+                <p class="coverInfo">Information for the movie</p>
+            </div>
+            
+        </div>
+        <div class="imgDiv">
+            <img src="/img/tchala.jpg" alt="" class="topMovie">
+            <div class="infoDiv">
+                <p class="coverName">Name</p>
+                <p class="coverInfo">Information for the movie</p>
+            </div>
+            
+        </div>
+        <div class="imgDiv">
+            <img src="/img/cruise.jpg" alt="" class="topMovie">
+            <div class="infoDiv">
+                <p class="coverName">Name</p>
+                <p class="coverInfo">Information for the movie</p>
+            </div>
+            
+        </div>
+        <!-- <img src="/img/bahubali.jpg" alt="" class="topMovie">
+        <img src="/img/keanu.jpg" alt="" class="topMovie">
+        <img src="/img/jason.jpg" alt="" class="topMovie">
+        <img src="/img/iron.jpg" alt="" class="topMovie">
+        <img src="/img/man.jpg" alt="" class="topMovie">
+        <img src="/img/vin.jpg" alt="" class="topMovie">
+        <img src="/img/cruise.jpg" alt="" class="topMovie">
+        <img src="/img/tony.jpg" alt="" class="topMovie">
+        <img src="/img/cpt.jpg" alt="" class="topMovie">
+        <img src="/img/tchala.jpg" alt="" class="topMovie">
+        <img src="/img/tchala.jpg" alt="" class="topMovie"> -->
+
     </div>
 
     <!-- pops up search field when search button is clicked.  -->
@@ -70,8 +167,7 @@
     <div id="comingSoonDivParent">
         <div id="comingSoonMenuHolder" style="display: flex;">
             <p id="comingSoon">Upcoming <span class="titleSpan">films</span></p>
-            <button type="submit" id="moreBtn"
-                style="width: 30px; height: 30px; margin-top: 10%; margin-left: 20%; color: whitesmoke; background-color: transparent; display: flex; justify-content: space-between; cursor: pointer;border-color: transparent;">More
+            <button type="submit" id="moreBtn">More
                 <i class="fa-solid fa-angle-right"
                     style="color: aliceblue; padding:2px 1px 1px 10px;cursor: pointer;"></i>
             </button>
@@ -85,14 +181,18 @@
         <div id="trendingMenuHolder" style="display: flex;">
             <p id="trending">Trending <span class="titleSpan">Movies</span></p>
             <!-- more button, leads to movies list -->
-            <button type="submit" id="moreBtnTrending"
-                style="width: 30px; height: 30px; margin-top: 10%; margin-left: 8%; color: whitesmoke; background-color: transparent; display: flex; justify-content: space-between; cursor: pointer; border-color: transparent;">More
+            <button type="submit" id="moreBtnTrending">
+                More
                 <i class="fa-solid fa-angle-right"
                     style="color: aliceblue; padding:2px 1px 1px 10px;cursor: pointer;"></i>
             </button>
         </div>
         <div id="trendingDiv">
 
+        </div>
+        <!--preview for movie item when hovered::only on desktop view screen-->
+        <div id="desktopPreview">
+            <img id="desktopPreviewCover" src="" alt="">
         </div>
         <div id="infoSectio"
             style="margin-top:10%; padding: 0%; width: 100vw; height: 50vw; background-color: transparent;">

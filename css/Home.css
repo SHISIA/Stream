@@ -1,203 +1,397 @@
 /* body default style  */
-body{
-    color: aliceblue;
-    background-color: black;
+body {
+  color: aliceblue;
+  background-color: black;
 }
+
 /* the site's name */
-#siteName{
-    font-size: 25px;
-    letter-spacing: 3px;
+#siteName {
+  font-size: 25px;
+  letter-spacing: 3px;
 
 }
+
 /* The "see" part of the title */
-#titlePart{
-    color: red;
+#titlePart {
+  color: red;
 }
+
 /* div for randon movie previews */
-#previewDiv{
-    width: 100vw;
-    background-color: transparent;
-    display: flex;
-    justify-content:center;
+#previewDiv {
+  width: 100vw;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
 }
+
 /* the top div holding the site name , search bar and menu button */
-#topBar{
-    width: 95vw;
-    display: flex;
-    position: relative;
-    justify-content: space-between;
-    background-color: transparent;
-    margin: 0;
+#topBar {
+  width: 95vw;
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  background-color: transparent;
+  margin: 0;
 }
+
 /* top two search and bar menu buttons */
-#menuButton , #searchButton{
-    background-color:transparent;
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-    border-color: transparent;
+#menuButton,
+#searchButton {
+  background-color: transparent;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  border-color: transparent;
 }
+
 /* tag button div */
-#tagMenu{
-    display: flex;
-    justify-content: space-between;
-    overflow-x: auto;
-    overflow-y: hidden;
-    white-space: nowrap;
+#tagMenu {
+  display: flex;
+  justify-content: space-between;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
 }
 
 #tagMenu::-webkit-scrollbar {
-    width: 0;
-    background-color: transparent; /* optional:  makes tag scrollbar invisible */
-  }
+  width: 0;
+  background-color: transparent;
+  /* optional:  makes tag scrollbar invisible */
+}
 
 /* top category tags "movies" , "TV Shows" , "Actors" , "Popular" etc */
-.tag{
-    width: 100px;
-    height: 30px;
-    margin-left: 4px;
-    border-radius: 20px;
-    background-color: #1C162B;
-    color: aliceblue;
-    font-weight: bold;
-    cursor: pointer;
+.tag {
+  width: 100px;
+  height: 30px;
+  margin-left: 4px;
+  border-radius: 20px;
+  background-color: #39324b;
+  color: aliceblue;
+  font-weight: bold;
+  cursor: pointer;
 }
+
 /* spans that style  trending and coming soon categories */
- #trending , #comingSoon{
-    font-size: 28px;
-    font-family: 'Josefin Slab', serif;
-    font-weight: 700;
-    margin-left: 5%;
-    /* font-weight: 800; */
+#trending,
+#comingSoon {
+  font-size: 28px;
+  font-family: 'Josefin Slab', serif;
+  font-weight: 700;
+  margin-left: 5%;
+  /* font-weight: 800; */
 }
+
 /* <span > element class that styles the second parts of the trending and coming soon categories */
-.titleSpan{
-    font-size: 25px;
-    font-weight: 500;
+.titleSpan {
+  font-size: 25px;
+  font-weight: 500;
 }
 
 /* Image resizing and appearance setting from here */
 
 /* cover image setup */
-#cover{
-    position:relative;
-    width: 90vw;
-    height: 30vh;
-    margin: 0%;
-    padding: 0%;
-    
-    border: 0px solid #971c1c;
-    box-shadow:1px 1px 2000px 8px #6c1f1f;
-    border-radius: 2%;
-    transition: box-shadow 0.5s ease-in-out;
+#cover {
+  position: relative;
+  width: 90vw;
+  height: 30vh;
+  margin: 0%;
+  padding: 0%;
+
+  border: 0px solid #971c1c;
+  box-shadow: 1px 1px 2000px 8px #6c1f1f;
+  border-radius: 2%;
+  transition: box-shadow 0.5s ease-in-out;
 }
 
 /* styling the Div Holding the "Coming Soon"  films*/
-#comingSoonDiv , #trendingDiv{
-    display: flex;
-    justify-content: space-between;
-    overflow-x: auto;
-    overflow-y: hidden;
-    white-space: nowrap;
+#comingSoonDiv,
+#trendingDiv {
+  display: flex;
+  justify-content: space-between;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
 }
-#comingSoonDiv::-webkit-scrollbar , #trendingDiv::-webkit-scrollbar{
-    width: 0;
-    background-color: transparent; /* optional: just make scrollbar invisible */
-  }
 
-  /* Style the modal */
+#comingSoonDiv::-webkit-scrollbar,
+#trendingDiv::-webkit-scrollbar {
+  width: 0;
+  background-color: transparent;
+  /* optional: just make scrollbar invisible */
+}
+
+/* Style the modal */
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.4);
-  }
-  /* menu buttons */
-  .navButton{
-    margin: 1.5%;
-    background-color: rgba(0,0,0,0.8);
-    color: whitesmoke;
-    border-color: transparent;
-    font-size: 20px;
-  }
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
 
-  .navButton:hover{
-    margin: 1.5%;
-    background-color: transparent;
-    cursor: pointer;
-    color: red;
-    transform: scale(1.2);
-  }
+/* menu buttons */
+.navButton {
+  margin: 1.5%;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: whitesmoke;
+  border-color: transparent;
+  font-size: 20px;
+}
+
+.navButton:hover {
+  margin: 1.5%;
+  background-color: transparent;
+  cursor: pointer;
+  color: red;
+  transform: scale(1.2);
+}
 
 /* close button "X" on menu pop up */
-  #menuClose{
-    margin-left: 0%;
-    margin-right: 95%;
-  }
+#menuClose {
+  margin-left: 0%;
+  margin-right: 95%;
+}
 
-  /* Style the modal content */
+/* class of div holding the tag li */
 .modal-content {
-    background-color: rgba(8, 0, 0, 0.85);
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    display: flex;
-    justify-content: space-between;
-  }
+  background-color: rgba(8, 0, 0, 0.85);
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
 
-  ul li{
-    text-decoration: none;
-    list-style: none;
-  }
+ul li {
+  text-decoration: none;
+  list-style: none;
+}
 
-  
-  /* Style the close button */
-  .close {
-    color: #fbf6f6;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    margin-right: 5%;
-  }
+
+/* Style the close button */
+.close {
+  color: #fbf6f6;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  margin-right: 5%;
+}
 
 /*close X button hover effects */
-  .close:hover,
+.close:hover,
 .close:focus {
   color: rgb(255, 255, 255);
   text-decoration: none;
   cursor: pointer;
 }
+
 /* text field to conduct search operations */
-#searchField{
-    background-color: transparent;
-    font-size: large;
-    width: 90%;
-    border-color: transparent;
-    border-radius: 10px;
-    color: rgb(150, 145, 145);
+#searchField {
+  background-color: transparent;
+  font-size: large;
+  width: 90%;
+  border-color: transparent;
+  border-radius: 10px;
+  color: rgb(150, 145, 145);
 }
 
-  /* Remove the browser's default styling for form elements */
-  input:focus {
-    outline: none;
-    box-shadow: none;
+/* Remove the browser's default styling for form elements */
+input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Set the background of the input field to transparent */
+input {
+  background-color: transparent;
+}
+
+/* container holding the menu buttons */
+#menuModal {
+  background: #1C162B .9;
+  width: 100%;
+  height: 50%;
+  margin: 2%;
+  border-radius: 10% 200% 10% 10%;
+}
+
+#moreBtn,#moreBtnTrending{
+  width: 30px;
+  height: 30px;
+  margin-top: 10%;
+  margin-left: 20%;
+  color: whitesmoke;
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  border-color: transparent;
+}
+
+  /* topMovie,desktopPreview div set to invisible to be displayed on desktop */
+  #topMovie,#desktopPreviewCover,#topMovieDiv,#desktopPreview{
+    display: none;
   }
 
-  /* Set the background of the input field to transparent */
-  input {
+
+
+/**Optimization for large screen**/
+@media only screen and (min-width: 768px) {
+
+  /* For desktop: */
+  #previewDiv {
+    display: none;
+  }
+
+  /* top most (first) div */
+  #topBar{
+    background-color: transparent;
+    position: relative;
+      margin: 0;
+      padding: 0;
+    width: 100%;
+  }
+
+
+  /* tag buttons div */
+  #tagMenu {
+    display: flex;
+    justify-content: space-between;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    z-index: 9;
     background-color: transparent;
   }
 
-  /* container holding the menu buttons */
-  #menuModal{
-    background: #1C162B .9;
-    width: 100%;
-    height: 50%;
-    margin:2%;
-    border-radius: 10% 200% 10% 10%;
+  /* topMovie,topMovieDiv div set to visible on desktop */
+  .topMovie{
+    padding: 0;
+    width: 350px;
+    height: 400px;
+    z-index: -1;
+   text-align: center;
+   display: block;
+   transition: transform 0.2s ease-out;
   }
+
+
+  #topMovieDiv{
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 0 400px rgb(5, 0, 0);
+    margin-left: -7%;
+    perspective: 1000px;
+  }
+
+  .topMovie:hover{
+    transform: scale(1.5);
+    z-index: -1;
+  }
+ 
+  
+  .imgDiv {
+    position: relative;
+    width: 300px; /* Adjust to match the width of your image */
+  }
+
+  
+  .infoDiv {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Adjust the opacity to your liking */
+    color: #fff;
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+
+  .imgDiv .coverInfo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 1.2rem;
+  }
+  
+  .imgDiv:hover .infoDiv {
+    opacity: 1;
+  }
+
+  @keyframes slide {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  /**movie tag**/
+  #moviesTag,
+  #tvShowsTag,
+  #popularTag,
+  #trendingTag,
+  #comingSoonTag {
+    margin-left: 4%;
+    margin-top: 1%;
+    font-size: 20px;
+    margin-bottom: 3%;
+    width: 13%;
+    padding-bottom: 30px;
+    padding-top: 5px;
+    background-color: transparent;
+    border: transparent;
+    border-radius: 0%;
+  }
+  /**movie tag:hover effects**/
+  #moviesTag:hover,
+  #tvShowsTag:hover,
+  #popularTag:hover,
+  #trendingTag:hover,
+  #comingSoonTag:hover{
+    background-color: transparent;
+    border:solid 1px rgb(88, 11, 11);
+    border-radius: 5px;
+  }
+
+  /**Site name (StreamSee)**/
+  #siteName,
+  #titlePart {
+    font-size: 50px;
+    margin: 3%;
+    margin-top: 1%;
+  }
+
+  /****/
+  #moreBtn {
+    margin-top: -5%;
+  }
+
+  /**see part of StreamSee**/
+  #titlePart {
+    margin-left: 0%;
+  }
+
+  #comingSoonMenuHolder {
+    display: inline-block;
+    white-space: nowrap;
+  }
+  /****/
+  #moreBtn,#moreBtnTrending{
+    display:none;
+  }
+
+}

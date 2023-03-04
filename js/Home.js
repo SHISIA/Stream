@@ -15,6 +15,7 @@ const menuModal = document.getElementById("menuModal");
 const moreBtnTrending = document.getElementById("moreBtnTrending");
 const moreBtn = document.getElementById("moreBtn");
 
+
 // Get the close button and add an event listener
 var close = document.getElementsByClassName("close")[0];
 var menuClose = document.getElementsByClassName("close")[1];
@@ -76,6 +77,9 @@ function encryptParams(params) {
 const previewDiv = document.getElementById("previewDiv");
 const comingSoonDiv = document.getElementById("comingSoonDiv");
 const trendingDiv = document.getElementById("trendingDiv");
+const desktopPreviewCover = document.getElementById("desktopPreviewCover");
+const topMovie = document.getElementById("topMovie");
+
 
 // api prerequisites
 let imagePath = "https://image.tmdb.org/t/p/w500"; 
@@ -90,6 +94,13 @@ async function setCover() {
   cover.src = `${imagePath}${data.results[1].poster_path}`;
   cover.style.cursor="pointer";
   cover.setAttribute("class", data.results[1].id);
+  desktopPreviewCover.style.cursor="pointer";
+  desktopPreviewCover.setAttribute("class",data.results[1].id);
+  desktopPreviewCover.src = `${imagePath}${data.results[1].backdrop_path}`;
+  topMovie.style.cursor="pointer";
+  topMovie.setAttribute("class",data.results[1].id);
+  topMovie.src = `${imagePath}${data.results[7].backdrop_path}`;
+
 }
 
 // cover.onclick=openSelectedMedia(data.results[1].id,"movie")
