@@ -286,22 +286,41 @@ input {
   #topMovieDiv{
     display: flex;
     position: relative;
-    overflow: hidden;
+    overflow: scroll;
     cursor: pointer;
     box-shadow: 0 0 400px rgb(5, 0, 0);
-    margin-left: -7%;
-    perspective: 1000px;
+    margin-left: 0%;
+    padding: 0;
+    top: 0;
+    margin: 0;
   }
 
-  .topMovie:hover{
+  #topMovieDiv::-webkit-scrollbar{
+    background-color:transparent;
+    width: 30px;
+  }
+  #topMovieDiv::-webkit-scrollbar-thumb:hover{
+    background-color:red;
+    width: 30px;
+  }
+  #topMovieDiv::-webkit-scrollbar-corner{
+    background-color:transparent;
+    width: 30px;
+  }
+
+  /* .topMovie:hover{
     transform: scale(1.5);
     z-index: -1;
-  }
+  } */
  
   
   .imgDiv {
     position: relative;
     width: 300px; /* Adjust to match the width of your image */
+  }
+
+  .coverName{
+    padding: 10px;
   }
 
   
@@ -311,19 +330,21 @@ input {
     left: 0;
     bottom: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.7); /* Adjust the opacity to your liking */
+    background-color: rgba(69, 64, 64, 0.7); /* Adjust the opacity to your liking */
     color: #fff;
     opacity: 0;
-    transition: opacity 0.5s;
+    /* border-radius: 5px; */
+    transition: opacity 1s;
   }
 
   .imgDiv .coverInfo {
+    font-family: 'Josefin Slab', serif;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
   
   .imgDiv:hover .infoDiv {
@@ -364,6 +385,7 @@ input {
   #comingSoonTag:hover{
     background-color: transparent;
     border:solid 1px rgb(88, 11, 11);
+    color: red;
     border-radius: 5px;
   }
 
