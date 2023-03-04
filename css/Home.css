@@ -103,9 +103,14 @@ body {
   transition: box-shadow 0.5s ease-in-out;
 }
 
-/* styling the Div Holding the "Coming Soon"  films*/
+/* styling the Div Holding the "Coming Soon", "Trending Movies" ,
+and the divs related to them films*/
 #comingSoonDiv,
-#trendingDiv {
+#comingSoonDiv2,
+#comingSoonDiv3,
+#trendingDiv,
+#trendingDiv2,
+#trendingDiv3 {
   display: flex;
   justify-content: space-between;
   overflow-x: auto;
@@ -113,10 +118,25 @@ body {
   white-space: nowrap;
 }
 
+/* styles the scrollbars of the divs containing loaded ovies from the API */
 #comingSoonDiv::-webkit-scrollbar,
-#trendingDiv::-webkit-scrollbar {
-  width: 0;
+#comingSoonDiv2::-webkit-scrollbar,
+#comingSoonDiv3::-webkit-scrollbar,
+#trendingDiv::-webkit-scrollbar,
+#trendingDiv2::-webkit-scrollbar,
+#trendingDiv3::-webkit-scrollbar {
   background-color: transparent;
+  /* optional: just make scrollbar invisible */
+}
+
+#comingSoonDiv::-webkit-scrollbar-thumb:hover,
+#comingSoonDiv2::-webkit-scrollbar-thumb:hover,
+#comingSoonDiv3::-webkit-scrollbar-thumb:hover,
+#trendingDiv::-webkit-scrollbar-thumb:hover,
+#trendingDiv2::-webkit-scrollbar-thumb:hover,
+#trendingDiv3::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(93, 16, 16);
+  border-radius: 50px;
   /* optional: just make scrollbar invisible */
 }
 
@@ -219,7 +239,8 @@ input {
   border-radius: 10% 200% 10% 10%;
 }
 
-#moreBtn,#moreBtnTrending{
+#moreBtn,
+#moreBtnTrending {
   width: 30px;
   height: 30px;
   margin-top: 10%;
@@ -232,27 +253,47 @@ input {
   border-color: transparent;
 }
 
-  /* topMovie,desktopPreview div set to invisible to be displayed on desktop */
-  #topMovie,#desktopPreviewCover,#topMovieDiv,#desktopPreview{
-    display: none;
-  }
+/* divs set to invisible to be displayed on desktop */
+#topMovie,
+#topMovieDiv,
+#trendingDiv2,
+#trendingDiv3,
+#comingSoonDiv2,
+#comingSoonDiv3 {
+  display: none;
+}
 
 
 
 /**Optimization for large screen**/
 @media only screen and (min-width: 768px) {
 
+
   /* For desktop: */
+
+  /* the "Upcoming films"and the "Trending Movies" text */
+  .titleSpan,
+  #comingSoon,
+  #trending {
+    font-size: 40px;
+    color: whitesmoke;
+  }
+
+  #comingSoon,
+  #trending {
+    color: red;
+  }
+
   #previewDiv {
     display: none;
   }
 
   /* top most (first) div */
-  #topBar{
+  #topBar {
     background-color: transparent;
     position: relative;
-      margin: 0;
-      padding: 0;
+    margin: 0;
+    padding: 0;
     width: 100%;
   }
 
@@ -272,18 +313,18 @@ input {
   }
 
   /* topMovie,topMovieDiv div set to visible on desktop */
-  .topMovie{
+  .topMovie {
     padding: 0;
     width: 350px;
     height: 400px;
     z-index: -1;
-   text-align: center;
-   display: block;
-   transition: transform 0.2s ease-out;
+    text-align: center;
+    display: block;
+    transition: transform 0.2s ease-out;
   }
 
-
-  #topMovieDiv{
+  /* div that holds inner divs that in turn hold the top actor images, names and their descriptions */
+  #topMovieDiv {
     display: flex;
     position: relative;
     overflow: scroll;
@@ -295,48 +336,54 @@ input {
     margin: 0;
   }
 
-  #topMovieDiv::-webkit-scrollbar{
-    background-color:transparent;
-    width: 30px;
-  }
-  #topMovieDiv::-webkit-scrollbar-thumb:hover{
-    background-color:red;
-    width: 30px;
-  }
-  #topMovieDiv::-webkit-scrollbar-corner{
-    background-color:transparent;
+  /* styles the topMovieDiv scrollbar */
+  #topMovieDiv::-webkit-scrollbar {
+    background-color: transparent;
     width: 30px;
   }
 
-  /* .topMovie:hover{
-    transform: scale(1.5);
-    z-index: -1;
-  } */
- 
-  
+  /* styles the topMovieDiv scrollbar thumbs */
+  #topMovieDiv::-webkit-scrollbar-thumb:hover {
+    background-color: red;
+    width: 30px;
+  }
+
+  /* styles the topMovieDiv scrollbar corner for uniformity */
+  #topMovieDiv::-webkit-scrollbar-corner {
+    background-color: transparent;
+    width: 30px;
+  }
+
+  /*div that holds the individual image items  */
   .imgDiv {
     position: relative;
-    width: 300px; /* Adjust to match the width of your image */
+    width: 300px;
+    /* Adjust to match the width of your image */
   }
 
-  .coverName{
-    padding: 10px;
+  /* names of the top actor covers */
+  .coverName {
+    margin-left: 5%;
+    font-size: 30px;
+    color: rgb(161, 18, 18);
   }
 
-  
+  /* div holding the two paragraph tags containing the actor name and brief history/description/information */
   .infoDiv {
     position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
-    background-color: rgba(69, 64, 64, 0.7); /* Adjust the opacity to your liking */
+    background-color: rgba(69, 64, 64, 0.7);
+    /* Adjust the opacity to your liking */
     color: #fff;
     opacity: 0;
     /* border-radius: 5px; */
     transition: opacity 1s;
   }
 
+  /* styles the second paragraph tag of every top image actor */
   .imgDiv .coverInfo {
     font-family: 'Josefin Slab', serif;
     position: absolute;
@@ -346,7 +393,8 @@ input {
     text-align: center;
     font-size: 1rem;
   }
-  
+
+  /* displays information when an image item on the top is hovered */
   .imgDiv:hover .infoDiv {
     opacity: 1;
   }
@@ -355,6 +403,7 @@ input {
     0% {
       transform: translateX(0);
     }
+
     100% {
       transform: translateX(-50%);
     }
@@ -377,16 +426,29 @@ input {
     border: transparent;
     border-radius: 0%;
   }
+
   /**movie tag:hover effects**/
   #moviesTag:hover,
   #tvShowsTag:hover,
   #popularTag:hover,
   #trendingTag:hover,
-  #comingSoonTag:hover{
+  #comingSoonTag:hover {
     background-color: transparent;
-    border:solid 1px rgb(88, 11, 11);
+    border: solid 1px rgb(88, 11, 11);
     color: red;
     border-radius: 5px;
+  }
+
+  /* display the subsequent trending divs for API page two movies */
+  #trendingDiv2,
+  #trendingDiv3,
+  #comingSoonDiv2,
+  #comingSoonDiv3 {
+    display: flex;
+    padding-bottom: 20px;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    padding-left: 0px;
   }
 
   /**Site name (StreamSee)**/
@@ -395,11 +457,7 @@ input {
     font-size: 50px;
     margin: 3%;
     margin-top: 1%;
-  }
 
-  /****/
-  #moreBtn {
-    margin-top: -5%;
   }
 
   /**see part of StreamSee**/
@@ -411,9 +469,11 @@ input {
     display: inline-block;
     white-space: nowrap;
   }
-  /****/
-  #moreBtn,#moreBtnTrending{
-    display:none;
+
+  /**disabled the more button both in the upcoming films and trending movies**/
+  #moreBtn,
+  #moreBtnTrending {
+    display: none;
   }
 
 }
