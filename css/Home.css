@@ -263,16 +263,78 @@ input {
   display: none;
 }
 
-.desktopPreview{
+#hoverInfoDiv{
   display: none;
 }
 
+/* lowerSection: The last info area on the front page */
+#lowerPage{
+  justify-self:center;
+  display: inline;
+  width: 90vw;
+  overflow: hidden;
+  padding:5px;
+  font-family: 'Josefin Slab', serif;
+  word-wrap: break-word;
+  font-size: 17px;
+  justify-content: space-between;
+}
+
+#lowerFirst,#lowerSecond,#lowerThird{
+  margin: 0.5%;
+  text-align: center;
+  font-size: 20px;
+  border: 1px solid rgba(61, 59, 59, 0.5);
+  box-shadow: #efefef;
+  overflow: hidden;
+  border-radius: 10px;
+  padding: 30px;
+}
+#emailField{
+  width: 50vw;
+  height: 40px;
+  border: 1px solid red;
+}
+#sendButton{
+  height: 49px;
+  width: 51.5vw;
+  margin: 0;
+  margin-top: -.5%;
+  background: rgb(203, 21, 21);
+  color: whitesmoke;
+  font-size: 15px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  border-radius: 1px;
+}
+/* email input field */
+#emailField{
+  color: whitesmoke;
+  border-radius: 1px;
+}
+/* emil field placeholder: default text */
+#emailField::placeholder{
+  color: rgb(195, 195, 195);
+  font-size: 16px;
+  text-align: center;
+}
+
+#lowerSiteName{
+  margin-top: 6%;
+  color: red;
+}
+
+#phoneDiv,#emailDiv,#locDiv{
+  display: flex;
+  justify-content: space-between;
+}
 
 /**Optimization for large screen**/
 @media only screen and (min-width: 768px) {
 
   body{
     font-family: 'Josefin Slab', serif;
+    margin:.5%;
   }
 
   /* For desktop: */
@@ -480,7 +542,7 @@ input {
     display:flex;
     justify-content: left;
     margin-left: 5%;
-    border: solid 1px red;
+    border: solid 1px rgb(148, 129, 129);
     padding: 5px;
     margin-right: 5%;
     margin-bottom: 3%;
@@ -511,17 +573,29 @@ input {
     font-size: 20px;
     margin-top: 0%;
   }
-
-  /* progressBar */
   #prevProgress{
-    margin-bottom: 2%;
-    width: 250px;
+    width: 100%;
+    overflow: hidden;
+  }
+ progress{
+   -webkit-appearance: none;
+   /* background: orangered; */
+ }
+   /* progress fill color */
+   progress::-webkit-progress-bar {
+    /* background-color: rgb(249, 248, 255); */
+    background: rgb(255, 255, 255);
+    width: 25%;
+    overflow: hidden;
+    height: 5px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   }
 
   /* progress fill color */
   progress::-webkit-progress-value {
-    background-color: rgb(67, 60, 98);
-    border-radius: 5px;
+    background: red;
+    border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   }
   /**disabled the more button both in the upcoming films and trending movies**/

@@ -44,7 +44,7 @@ searchButton.addEventListener("click", function () {
 //Add an event listener to the search field. Just for styling purposes
 searchField.addEventListener("", function () {
   searchField.style.borderColor = "transparent";
-})
+});
 
 //searching movie via searchbox :: Gets the field value and sends it encrypted 
 // to results view page
@@ -56,7 +56,7 @@ search.addEventListener("click", function () {
     const encryptedParams = encryptParams(params)
     window.location = `/html/SearchResults.html?param=${encryptedParams}`;
   }
-})
+});
 
 
 // variables
@@ -96,9 +96,13 @@ const duration = document.getElementById("duration");
 
 // api prerequisites
 let imagePath = "https://image.tmdb.org/t/p/w500";
+let api_key="api_key=f3fa058a0294c6f7b1d786efd12e5aa0"
 let trending = "https://api.themoviedb.org/3/trending/movie/day?api_key=f3fa058a0294c6f7b1d786efd12e5aa0";
+let movieId;
+let searchMovieLink="https://api.themoviedb.org/3/movie/";
 let pageInitial = "&page=";
 let trendingShows = "https://api.themoviedb.org/3/trending/tv/day?api_key=f3fa058a0294c6f7b1d786efd12e5aa0";
+
 
 //set up cover movie from trending
 async function setCover() {
@@ -109,11 +113,9 @@ async function setCover() {
   cover.setAttribute("class", data.results[1].id);
   topMovie.style.cursor = "pointer";
   topMovie.setAttribute("class", data.results[1].id);
-  topMovie.src = `${imagePath}${data.results[7].backdrop_path}`;
+  topMovie.src = `${imagePath}${data.results[1].backdrop_path}`;
 
 }
-
-// cover.onclick=openSelectedMedia(data.results[1].id,"movie")
 
 cover.onclick = () => {
   openSelectedMedia(cover.className, "movie")
@@ -131,9 +133,9 @@ moviesTag.onclick = () => {
 
 tvShowsTag.onclick = () => {
   const params = {
-    type: "tvshows",
+    type: "tvshows"
   };
-  const encryptedParams = encryptParams(params)
+  const encryptedParams = encryptParams(params);
   window.location = `/html/Category.html?param=${encryptedParams}`;
 }
 //  actorsTag.onclick=() =>{
@@ -142,25 +144,25 @@ tvShowsTag.onclick = () => {
 //  }
 popularTag.onclick = () => {
   const params = {
-    type: "popular",
+    type: "popular"
   };
-  const encryptedParams = encryptParams(params)
+  const encryptedParams = encryptParams(params);
   window.location = `/html/Category.html?param=${encryptedParams}`;
 
 }
 trendingTag.onclick = () => {
   const params = {
-    type: "trending",
+    type: "trending"
   };
-  const encryptedParams = encryptParams(params)
+  const encryptedParams = encryptParams(params);
   window.location = `/html/Category.html?param=${encryptedParams}`;
 
 }
 upComingTag.onclick = () => {
   const params = {
-    type: "upcoming",
+    type: "upcoming"
   };
-  const encryptedParams = encryptParams(params)
+  const encryptedParams = encryptParams(params);
   window.location = `/html/Category.html?param=${encryptedParams}`;
 
 }
@@ -177,24 +179,14 @@ function openSelectedMedia(value, mediaType) {
 
 
 
-async function loadSpecificCategory(parentElement, url, movie_id) {
+async function loadSpecificCategory(parentElement, url, counter) {
   let response = await fetch(`${url}`);
   let data = await response.json();
-  let mediaType;
-  let poster = imagePath + data.results[movie_id].poster_path;
-  let id = data.results[movie_id].id;
-  let title = data.results[movie_id].title;
-  let vote_average = data.results[movie_id].vote_average;
-  let overview = data.results[movie_id].overview;
-  let release_date = data.results[movie_id].release_date;
-  let original_language = data.results[movie_id].original_language;
-  if (url.includes("movie")) {
-    mediaType = "movie"
-  } else {
-    mediaType = "tv"
-    console.log(data)
-
-  }
+  let poster = imagePath + data.results[counter].poster_path;
+  let id = data.results[counter].id;
+  let title = data.results[counter].title;
+  let release_date = data.results[counter].release_date;
+  outerView=data.results[counter].overview;
   parentElement.innerHTML +=
     `
     <div style=
@@ -202,16 +194,16 @@ async function loadSpecificCategory(parentElement, url, movie_id) {
     display:box;
     margin-left:5%;
     ">
-        <img onmouseleave="hidePreview()" onmouseover="hoverAndPreview('${poster}','${title}','${vote_average}','${overview}','${release_date}','${mediaType}',
-        '${original_language}')"
-             src="${poster}" 
+        <img
             style=
-            "width:130px;
+            "
+            width:130px;
             height:180px;
             border-radius:6% 6% 0% 0%;
             cursor:pointer;
             "
-            onclick="openSelectedMedia('${id}','${mediaType}')"
+            src="${poster}" 
+            onclick="openSelectedMedia('${id}','movie')"
         >
         <div style=
         "
@@ -237,7 +229,7 @@ async function loadSpecificCategory(parentElement, url, movie_id) {
             margin:5%;
             margin-top:15%;
             margin-bottom:0%;
-            ">${data.results[movie_id].release_date}</p>
+            ">${release_date}</p>
         </div>
     </div>
     `
@@ -248,21 +240,24 @@ function hidePreview() {
 }
 
 // loads the preview template with movie data when a movie item is loaded
-async function hoverAndPreview(poster, title, vote_average, overview, release_date, media_type, original_language) {
-  desktopPreview.style.display = "flex";
-  desktopPreview.style.cursor = "pointer";
-  desktopPreviewCover.src = poster;
-  prevTitle.innerText = title;
-  prevRatingValue.innerText = vote_average;
-  description.innerText = overview;
-  releaseDate.textContent = release_date;
-  duration.textContent = media_type;
-  genre.textContent = original_language.toUpperCase();
-}
+// function hoverAndPreview(poster, title, vote_average,release_date, media_type, original_language,id,outerView)
+// {
+//   console.log(outerView)
+//   getOverView(description,id);
+//   desktopPreview.style.display = "flex";
+//   desktopPreview.style.cursor = "pointer";
+//   desktopPreviewCover.src = poster;
+//   prevTitle.innerText = title;
+//   prevRatingValue.innerText = vote_average;
+//   releaseDate.textContent = release_date;
+//   description.innerText=outerView;
+//   duration.textContent = media_type;
+//   genre.textContent = original_language.toUpperCase();
+// }
 
 // loads the set cateogries and specified results page as declared by the API
 function loadCategories() {
-  for (let i = 0; i <= 9; i++) {
+  for (let i = 0; i <= 9; i++){
     // comingSoon Category
     loadSpecificCategory(comingSoonDiv, comingSoonUrl + pageInitial + "1", i);
     loadSpecificCategory(comingSoonDivTwo, comingSoonUrl + pageInitial + "2", i);

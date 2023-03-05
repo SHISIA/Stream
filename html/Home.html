@@ -185,37 +185,35 @@
 
         </div>
         <!--preview for movie item when hovered::only on desktop view screen-->
-        <div class="desktopPreview">
+        <br>
+        <div class="desktopPreview" id="hoverInfoDiv">
             <div>
                 <img id="desktopPreviewCover" src="/img/esther.jpg" width="200px" alt="">
             </div>
             <div id="prevInfo">
                 <p id="prevTitle" >Esther</p>
-                <progress id="prevProgress" value="50" max="100"></progress>
+                <progress id="prevProgress" value="65" max="100"></progress>
                 <div style="display: flex; justify-content:left;">
                     <p id="prevRating">Ratings&nbsp&nbsp</p>
                     <p id="prevRatingValue">9.0&nbsp</p>
                     <img class="rating" id="oneStar" src="/img/star-filled.png" alt="">
                 </div>
-                <p id="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis impedit nisi soluta, quaerat, delectus sunt, voluptatum ducimus fugit dolorum reprehenderit architecto necessitatibus quo pariatur accusantium. Enim commodi incidunt quo, eaque fugit totam, magni iusto eligendi quaerat id doloribus ut optio.</p>
-                <p id="releaseDate"><span style="color: red;">Release Date</span> 2022-03-12</p>
-                <p id="duration"><span style="color: red;">Duration</span> 90 mins</p>
+                <p><span style="color: red;">Language</span> <span id="genre"></span></p>
+                <p id="description"></p>
+                <p ><span style="color: red;">Release Date</span>
+                     <span id="releaseDate" >2013-06-11</span></p>
+                <p><span style="color: red;">Type</span> 
+                <span id="duration">1hr 30mins</span>
+                </p>
             </div>
         </div>
         <!-- page two of trending films -->
         <div id="comingSoonDiv2">
         </div>
         <!--preview for movie item when hovered::only on desktop view screen-->
-        <!-- <div class="desktopPreview">
-            <img id="desktopPreviewCover" src="" alt="">
-        </div> -->
         <!-- page two of upcoming films -->
         <div id="comingSoonDiv3">
         </div>
-        <!--preview for movie item when hovered::only on desktop view screen-->
-        <!-- <div class="desktopPreview">
-            <img id="desktopPreviewCover" src="" alt="">
-        </div> -->
     </div>
     <!-- The div holding trending movies -->
     <div id="trendingDivParent">
@@ -230,25 +228,13 @@
         </div>
         <div id="trendingDiv" style="padding-bottom: 2%;">
         </div>
-        <!--preview for movie item when hovered::only on desktop view screen-->
-        <!-- <div class="desktopPreview">
-            <img id="desktopPreviewCover" src="" alt="">
-        </div> -->
         <!-- page two of trending films -->
         <div id="trendingDiv2">
         </div>
-        <!--preview for movie item when hovered::only on desktop view screen-->
-        <!-- <div class="desktopPreview">
-            <img id="desktopPreviewCover" src="" alt="">
-        </div> -->
         <!-- page three of trending films -->
         <div id="trendingDiv3">
         </div>
-        <!--preview for movie item when hovered::only on desktop view screen-->
-        <!-- <div class="desktopPreview">
-            <img id="desktopPreviewCover" src="" alt="">
-        </div> -->
-        <div id="infoSectio"
+        <!-- <div id="infoSectio"
             style="margin-top:10%; padding: 0%; width: 100vw; height: 50vw; background-color: transparent;">
             <div id="Contact" style="text-align: center;">
                 <span style="color: grey;"> Contact us on </span>
@@ -267,6 +253,58 @@
                     <span style="color: aqua;">The Movie Database </span>
                 </p>
                 <img src="/img/tmdb.svg" style="width: 80px;" alt="">
+            </div>
+        </div> -->
+
+        <div id="lowerPage">
+            <div id="lowerFirst">
+                <p id="lowerSiteName" style="font-size: 40px;">StreamSee</p>
+                <p>Watch Exclusive Trailers at your request <br> by just a simple search</p>
+                <p>Have a message for me? Cool!!</p>
+                <div id="messageDiv">
+                    <input type="email" placeholder="Message Me" id="emailField">
+                    <button id="sendButton">Send</button>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div id="lowerSecond">
+                <p style="font-size: 40px;">About</p>
+                <p>Data courtesy of <a style="
+                color: red;
+                font-weight: bold;"href="https://www.themoviedb.org/">TMDB</a></p>
+                <img src="/img/tmdb.svg" width="100px" 
+                style="text-align: center;"
+                 alt="">
+            </div>
+            <br>
+            <br>
+            <div id="lowerThird">
+                <p style="font-size: 40px;">Contact Us</p>
+                <!-- phone div: contains phone number and icon -->
+                <div id="phoneDiv">
+                    <img src="/img/phone.png" width="30px" height="40px" style="margin-left:20%;" alt="">
+                    <p style="font-size: 18px;
+                    color: rgb(215, 12, 12);
+                    margin-right: 25%;
+                    margin-left:-30%;">+254724604146</p>
+                </div>
+                <!-- email div :contains email icon and email at lower page-->
+                <div id="emailDiv">
+                    <img src="/img/email.png" width="30px" height="40px" style="margin-left:20%;" alt="">
+                    <p style="font-size: 18px; 
+                    color: rgb(250, 247, 247);
+                    margin-right: 4%;">
+                    jamesshisia6@gmail.com</p>
+                </div>
+                <!-- location div:contains location icon and location info -->
+                <div id="locDiv">
+                    <img src="/img/location.png" width="30px" height="40px" style="margin-left:20%;
+                    text-align: left;" alt="">
+                    <p style="font-size: 18px;
+                    color: rgb(220, 15, 15);                    margin-right: 25%;
+">Nairobi , Kenya</p>
+                </div>
             </div>
         </div>
     </div>
