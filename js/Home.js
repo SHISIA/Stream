@@ -20,42 +20,41 @@ const moreBtn = document.getElementById("moreBtn");
 var close = document.getElementsByClassName("close")[0];
 var menuClose = document.getElementsByClassName("close")[1];
 
-close.addEventListener("click", function() {
+close.addEventListener("click", function () {
   myModal.style.display = "none";
 });
 
-menuClose.addEventListener("click", function() {
-    menuModal.style.display = "none";
-    menuButton.style.display = "block";
-
-  });
-
-  // Add an event listener to the button
-menuButton.addEventListener("click", function() {
-    menuModal.style.display = "block";
-    menuButton.style.display = "none"
-    menuModal.style.marginTop="15%";
-  });
+menuClose.addEventListener("click", function () {
+  menuModal.style.display = "none";
+  menuButton.style.display = "block";
+});
 
 // Add an event listener to the button
-searchButton.addEventListener("click", function() {
+menuButton.addEventListener("click", function () {
+  menuModal.style.display = "block";
+  menuButton.style.display = "none"
+  menuModal.style.marginTop = "15%";
+});
+
+// Add an event listener to the button
+searchButton.addEventListener("click", function () {
   myModal.style.display = "block";
 });
 
 //Add an event listener to the search field. Just for styling purposes
-searchField.addEventListener("", function() {
-  searchField.style.borderColor= "transparent";
+searchField.addEventListener("", function () {
+  searchField.style.borderColor = "transparent";
 })
 
 //searching movie via searchbox :: Gets the field value and sends it encrypted 
 // to results view page
-search.addEventListener("click", function() {
-  if(!searchField.value==null || !searchField.value==""){
+search.addEventListener("click", function () {
+  if (!searchField.value == null || !searchField.value == "") {
     const params = {
       term: searchField.value
-  };
-  const encryptedParams = encryptParams(params)
-  window.location=`/html/SearchResults.html?param=${encryptedParams}`;
+    };
+    const encryptedParams = encryptParams(params)
+    window.location = `/html/SearchResults.html?param=${encryptedParams}`;
   }
 })
 
@@ -67,11 +66,11 @@ let comingSoonUrl = "https://api.themoviedb.org/3/movie/upcoming?api_key=f3fa058
 
 // encrypt params
 function encryptParams(params) {
-    const key = "c7974249b02fhiukjn7";
-    const encrypted = CryptoJS.AES.encrypt(JSON.stringify(params), key).toString();
-    return encodeURIComponent(encrypted);
-  }
-  
+  const key = "c7974249b02fhiukjn7";
+  const encrypted = CryptoJS.AES.encrypt(JSON.stringify(params), key).toString();
+  return encodeURIComponent(encrypted);
+}
+
 
 // content Divs that will hold movies
 const previewDiv = document.getElementById("previewDiv");
@@ -81,116 +80,138 @@ const trendingDivTwo = document.getElementById("trendingDiv2");
 const trendingDivThree = document.getElementById("trendingDiv3");
 const comingSoonDivTwo = document.getElementById("comingSoonDiv2");
 const comingSoonDivThree = document.getElementById("comingSoonDiv3");
-const desktopPreviewCover = document.getElementById("desktopPreviewCover");
 const topMovie = document.getElementById("topMovie");
 
+//Hover elements preview elements
+const desktopPreview = document.getElementById("hoverInfoDiv");
+const prevTitle = document.getElementById("prevTitle");
+const desktopPreviewCover = document.getElementById("desktopPreviewCover");
+const prevProgress = document.getElementById("prevProgress");
+const releaseDate = document.getElementById("releaseDate");
+const prevRatingValue = document.getElementById("prevRatingValue");
+const genre = document.getElementById("genre");
+const description = document.getElementById("description");
+const duration = document.getElementById("duration");
+//end of Hove elements for movie preview
 
 // api prerequisites
-let imagePath = "https://image.tmdb.org/t/p/w500"; 
+let imagePath = "https://image.tmdb.org/t/p/w500";
 let trending = "https://api.themoviedb.org/3/trending/movie/day?api_key=f3fa058a0294c6f7b1d786efd12e5aa0";
 let pageInitial = "&page=";
 let trendingShows = "https://api.themoviedb.org/3/trending/tv/day?api_key=f3fa058a0294c6f7b1d786efd12e5aa0";
 
 //set up cover movie from trending
 async function setCover() {
-  let response = await fetch(`${trending}`)
+  let response = await fetch(`${trending}`);
   let data = await response.json();
   cover.src = `${imagePath}${data.results[1].poster_path}`;
-  cover.style.cursor="pointer";
+  cover.style.cursor = "pointer";
   cover.setAttribute("class", data.results[1].id);
-  // desktopPreviewCover.style.cursor="pointer";
-  // desktopPreviewCover.setAttribute("class",data.results[1].id);
-  // desktopPreviewCover.src = `${imagePath}${data.results[1].backdrop_path}`;
-  topMovie.style.cursor="pointer";
-  topMovie.setAttribute("class",data.results[1].id);
+  topMovie.style.cursor = "pointer";
+  topMovie.setAttribute("class", data.results[1].id);
   topMovie.src = `${imagePath}${data.results[7].backdrop_path}`;
 
 }
 
 // cover.onclick=openSelectedMedia(data.results[1].id,"movie")
 
-cover.onclick = ()=>{
-  openSelectedMedia(cover.className,"movie")
+cover.onclick = () => {
+  openSelectedMedia(cover.className, "movie")
 }
 
 // tag event listeners to load movies specified by those tags
-   moviesTag.onclick=() =>{
-   const params = {
-        type: "movies",
-    };
-      
-    const encryptedParams = encryptParams(params);
-    window.location=`/html/Category.html?param=${encryptedParams}`;
-   }
-   tvShowsTag.onclick=() =>{
-    const params = {
-        type: "tvshows",
-    };
-    const encryptedParams = encryptParams(params)
-    window.location=`/html/Category.html?param=${encryptedParams}`;
-   }
-  //  actorsTag.onclick=() =>{
-  //   window.location="/html/Category.html?param=people";
+moviesTag.onclick = () => {
+  const params = {
+    type: "movies",
+  };
 
-  //  }
-   popularTag.onclick=() =>{
-    const params = {
-        type: "popular",
-    };
-    const encryptedParams = encryptParams(params)
-    window.location=`/html/Category.html?param=${encryptedParams}`;
+  const encryptedParams = encryptParams(params);
+  window.location = `/html/Category.html?param=${encryptedParams}`;
+}
 
-   }
-   trendingTag.onclick = () =>{
-    const params = {
-        type: "trending",
-    };
-    const encryptedParams = encryptParams(params)
-    window.location=`/html/Category.html?param=${encryptedParams}`;
+tvShowsTag.onclick = () => {
+  const params = {
+    type: "tvshows",
+  };
+  const encryptedParams = encryptParams(params)
+  window.location = `/html/Category.html?param=${encryptedParams}`;
+}
+//  actorsTag.onclick=() =>{
+//   window.location="/html/Category.html?param=people";
 
-   }
-   upComingTag.onclick=() =>{
-    const params = {
-        type: "upcoming",
-    };
-    const encryptedParams = encryptParams(params)
-    window.location=`/html/Category.html?param=${encryptedParams}`;
+//  }
+popularTag.onclick = () => {
+  const params = {
+    type: "popular",
+  };
+  const encryptedParams = encryptParams(params)
+  window.location = `/html/Category.html?param=${encryptedParams}`;
 
-   }
+}
+trendingTag.onclick = () => {
+  const params = {
+    type: "trending",
+  };
+  const encryptedParams = encryptParams(params)
+  window.location = `/html/Category.html?param=${encryptedParams}`;
 
-   // function to load when movie item is clicked
-function openSelectedMedia(value,mediaType){
+}
+upComingTag.onclick = () => {
+  const params = {
+    type: "upcoming",
+  };
+  const encryptedParams = encryptParams(params)
+  window.location = `/html/Category.html?param=${encryptedParams}`;
+
+}
+
+// function to load when movie item is clicked
+function openSelectedMedia(value, mediaType) {
   const encryptedParams = {
-      name:value,
-      type:mediaType
+    name: value,
+    type: mediaType
   };
   const encryptedValue = encryptParams(encryptedParams);
-  window.location=`/html/Overview.html?param=${encryptedValue}`;
+  window.location = `/html/Overview.html?param=${encryptedValue}`;
 }
 
 
 
-async function loadSpecificCategory(parentElement,url,movie_id){
-    let response = await fetch(`${url}`)
-    let data = await response.json();
-    let mediaType;
-    console.log("data ",data);
-      mediaType="movie";
-    parentElement.innerHTML+=
+async function loadSpecificCategory(parentElement, url, movie_id) {
+  let response = await fetch(`${url}`);
+  let data = await response.json();
+  let mediaType;
+  let poster = imagePath + data.results[movie_id].poster_path;
+  let id = data.results[movie_id].id;
+  let title = data.results[movie_id].title;
+  let vote_average = data.results[movie_id].vote_average;
+  let overview = data.results[movie_id].overview;
+  let release_date = data.results[movie_id].release_date;
+  let original_language = data.results[movie_id].original_language;
+  if (url.includes("movie")) {
+    mediaType = "movie"
+  } else {
+    mediaType = "tv"
+    console.log(data)
+
+  }
+  parentElement.innerHTML +=
     `
     <div style=
     "
     display:box;
     margin-left:5%;
     ">
-        <img src="${imagePath}${data.results[movie_id].poster_path}" 
+        <img onmouseleave="hidePreview()" onmouseover="hoverAndPreview('${poster}','${title}','${vote_average}','${overview}','${release_date}','${mediaType}',
+        '${original_language}')"
+             src="${poster}" 
             style=
             "width:130px;
             height:180px;
             border-radius:6% 6% 0% 0%;
             cursor:pointer;
             "
-            onclick=openSelectedMedia('${data.results[movie_id].id}','${mediaType}');
+            onclick="openSelectedMedia('${id}','${mediaType}')"
         >
         <div style=
         "
@@ -208,7 +229,7 @@ async function loadSpecificCategory(parentElement,url,movie_id){
             color:red;
             overflow:hidden;
             "
-            >${data.results[movie_id].title}</p>
+            >${title}</p>
             <p style=
             "
             font-size:12px;
@@ -222,23 +243,41 @@ async function loadSpecificCategory(parentElement,url,movie_id){
     `
 }
 
+function hidePreview() {
+  desktopPreview.style.display = "none";
+}
 
-function loadCategories(){
-    for(let i=0;i<=9;i++){
-      // comingSoon Category
-        loadSpecificCategory(comingSoonDiv,comingSoonUrl+pageInitial+"1",i);
-        loadSpecificCategory(comingSoonDivTwo,comingSoonUrl+pageInitial+"2",i);
-        loadSpecificCategory(comingSoonDivThree,comingSoonUrl+pageInitial+"3",i);
-        // trending category
-        loadSpecificCategory(trendingDiv,trending+pageInitial+"1",i);
-        loadSpecificCategory(trendingDivTwo,trending+pageInitial+"2",i);
-        loadSpecificCategory(trendingDivThree,trending+pageInitial+"3",i);
-    }
+// loads the preview template with movie data when a movie item is loaded
+async function hoverAndPreview(poster, title, vote_average, overview, release_date, media_type, original_language) {
+  desktopPreview.style.display = "flex";
+  desktopPreview.style.cursor = "pointer";
+  desktopPreviewCover.src = poster;
+  prevTitle.innerText = title;
+  prevRatingValue.innerText = vote_average;
+  description.innerText = overview;
+  releaseDate.textContent = release_date;
+  duration.textContent = media_type;
+  genre.textContent = original_language.toUpperCase();
+}
+
+// loads the set cateogries and specified results page as declared by the API
+function loadCategories() {
+  for (let i = 0; i <= 9; i++) {
+    // comingSoon Category
+    loadSpecificCategory(comingSoonDiv, comingSoonUrl + pageInitial + "1", i);
+    loadSpecificCategory(comingSoonDivTwo, comingSoonUrl + pageInitial + "2", i);
+    loadSpecificCategory(comingSoonDivThree, comingSoonUrl + pageInitial + "3", i);
+    // trending category
+    loadSpecificCategory(trendingDiv, trending + pageInitial + "1", i);
+    loadSpecificCategory(trendingDivTwo, trending + pageInitial + "2", i);
+    loadSpecificCategory(trendingDivThree, trending + pageInitial + "3", i);
+  }
 
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-  // Your function code here
+// works just like window.onload function;
+document.addEventListener("DOMContentLoaded", function () {
+  desktopPreview.style.display = "none";
   setCover();
   loadCategories();
 });
