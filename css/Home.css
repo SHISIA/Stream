@@ -232,11 +232,12 @@ input {
 
 /* container holding the menu buttons */
 #menuModal {
-  background: #1C162B .9;
+  background: #020105;
   width: 100%;
-  height: 50%;
-  margin: 2%;
-  border-radius: 10% 200% 10% 10%;
+  height: 25%;
+  margin: 0%;
+  position: relative;
+  /* border-radius: 10% 200% 10% 10%; */
 }
 
 #moreBtn,

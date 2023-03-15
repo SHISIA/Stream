@@ -156,13 +156,15 @@
                     <span class="close" id="menuClose">&times;</span>
                 </li>
                 <li>
-                    <button class="navButton" id="about">About</button>
+                    <button onclick="location.href='#lowerSecond'"
+                    class="navButton" id="about">About</button>
                 </li>
                 <li>
-                    <button class="navButton" id="hire">Hire Me</button>
+                    <button onclick="location.href='#messageDiv'"
+                     class="navButton" id="hire">Hire Me</button>
                 </li>
                 <li>
-                    <button class="navButton" id="message">Message Me</button>
+                    <button class="navButton" id="message" onclick="location.href='#messageDiv'">Message Me</button>
                 </li>
             </ul>
         </div>
@@ -241,8 +243,8 @@
                 <p>Watch Exclusive Trailers at your request <br> by just a simple search</p>
                 <p>Have a message for me? Cool!!</p>
                 <div id="messageDiv">
-                    <input type="email" placeholder="Message Me" id="emailField">
-                    <button id="sendButton">Send</button>
+                    <input type="text" placeholder="Message Me" id="emailField">
+                    <button id="sendButton" onclick="sendEmail()">Send</button>
                 </div>
             </div>
             <br>

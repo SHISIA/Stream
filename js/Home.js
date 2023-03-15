@@ -39,6 +39,8 @@ menuButton.addEventListener("click", function () {
 // Add an event listener to the button
 searchButton.addEventListener("click", function () {
   myModal.style.display = "block";
+  menuModal.style.display = "none";
+  menuButton.style.display = "block";
 });
 
 //Add an event listener to the search field. Just for styling purposes
@@ -130,7 +132,7 @@ moviesTag.onclick = () => {
   const encryptedParams = encryptParams(params);
   window.location = `/html/Category.html?param=${encryptedParams}`;
 }
-
+// loads tv show clip items
 tvShowsTag.onclick = () => {
   const params = {
     type: "tvshows"
@@ -138,10 +140,24 @@ tvShowsTag.onclick = () => {
   const encryptedParams = encryptParams(params);
   window.location = `/html/Category.html?param=${encryptedParams}`;
 }
-//  actorsTag.onclick=() =>{
-//   window.location="/html/Category.html?param=people";
+// sends the email message when "Send" button has been clicked
+function sendEmail() {
+  // var email = document.getElementById("email").value;
+  var message = document.getElementById("emailField").value;
+  var subject = "Message from Stream Trailer User";
 
-//  }
+  var mailtoLink = "mailto:jamesshisia6@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(message);
+
+  window.open(mailtoLink);
+}
+// // scroll to the selected div
+// function scrollToDiv(element) {
+//   var divElement = document.getElementById(element);
+//   divElement.scrollIntoView({ behavior: "smooth", block: "start" });
+// }
+
+
+// loads popular movies clip items
 popularTag.onclick = () => {
   const params = {
     type: "popular"
