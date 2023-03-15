@@ -169,7 +169,7 @@ body{
 }
 /* the "Watch Trailer" Button */
 #watchButton{
-    margin-top: -45%;
+    /* margin-top: -30%; */
     width: 400px;
     height: 60px;
     text-align: center;
@@ -184,7 +184,7 @@ body{
 }
 /*  */
 #mainDesktopDiv{
-    margin-top: -15%;
+    margin-top: -10%;
     width: 100%;
     background-size: cover;
     /* height: 100%; */
@@ -218,15 +218,17 @@ body{
     width: 80%;
     margin: 1%;
     font-size: x-large;
-    margin-bottom: 3%;
+    margin-bottom: 0%;
 }
+/* div containing movie summary text information */
 #infoDiv{
     justify-content: center;
     margin: 10%;
-    margin-top: 12%;
+    margin-top: 5%;
 }
+/* the movie poster on the left side of the movie summary */
 #poster{
-    margin-top: 20%;
+    margin-top: 10%;
     margin-right:10%;
     padding: 10px;
     width: 60vh;
@@ -238,7 +240,8 @@ body{
     margin-top: -3%;
     justify-content: space-between;
 }
-#backButton{
+/* the play icon and back arrow icon on mobile view set to opaque in desktop view  */
+#backButton,#playButton{
     display: none;
 }
     
