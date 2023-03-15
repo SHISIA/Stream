@@ -7,13 +7,15 @@ body{
     display: flex;
     justify-content:left;
     margin-top: 5%;
-    margin-left: 5%;
+    margin-left: .5%;
 }
+/* movie title from specific movie */
 #movieName{
     margin-left: 5%;
     font-size: 20px;
     font-weight: bold;
 }
+/* the trailer iframe */
 iframe{
     background-image: url("/img/logo.png");
     background-size: contain;
@@ -26,7 +28,37 @@ iframe{
     margin-top: 5%;
     height: 80vw;
 }
+/* olds the iframe and contents linked to it */
 #iframeHolder{
     display: flex;
     justify-content: center;
 }
+#other{
+    display: inline;
+    justify-content: space-between;
+}
+#othersHolder_2{
+    display: none;
+}
+
+ @media only screen and (min-width:768px){
+    iframe{
+        width: 100vw;
+        height: 65vh ;
+        position: relative;
+    }
+    /* StreamSee title appearing under video */
+    #streamLogo{
+        display: none;
+    }
+    #others{
+        display: flex;
+        margin: 5%;
+    }
+    #othersHolder_2{
+        display: inline;
+        margin: 0%;
+        padding: 10px;
+    }
+    
+ }

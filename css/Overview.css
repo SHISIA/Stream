@@ -10,8 +10,9 @@ body {
      left: 0;
      padding: 0%;
      margin: 0;
-
+     margin-top:0;
 }
+
 
 
 
@@ -29,6 +30,7 @@ body::before {
     right: 0;
     filter: blur(2px);
     z-index: -1;
+    margin: 0%;
   }
   
   .content {
@@ -88,14 +90,6 @@ body::before {
     text-align: center;
 }
 
-/* div holding the movie summary */
-/* #descriptionDiv {
-    border: 0px solid #971c1c;
-    box-shadow: 1px 1px 2000px 8px #0e0303;
-    border-radius: 2%;
-    transition: box-shadow 0.8s ease-in-out;
-} */
-
 /* movie summary paragraph */
 #description , #release_date {
     text-align: left;
@@ -136,19 +130,19 @@ body::before {
     #playDiv,#playButton{
         display: hidden;
     }
+
 body{
     background-size: 100vw 100vh;
     background-color: #000000;
-    /* background-image: black; */
     position: relative;
     font-family: 'Josefin Slab', serif;
      top: 0;
      left: 0;
-     padding: 0%;  
+     padding: 0;  
      margin: 0;
-} 
-/* these are set to invisible to be seen on desktop view */
+}
 
+/* these are set to invisible to be seen on desktop view */
 .Genre{
     color: whitesmoke;
     font-size: 20px;
@@ -243,6 +237,5 @@ body{
 /* the play icon and back arrow icon on mobile view set to opaque in desktop view  */
 #backButton,#playButton{
     display: none;
-}
-    
+  }
 }

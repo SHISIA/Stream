@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,24 +10,58 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <title>StreamSee</title>
 </head>
+
 <body>
     <div id="parent">
-        <div id="avatarDiv">
-            <img src="/img/5f51f696241415.5eb2d19f8b3e1.png" style="width: 50px; border-radius: 80%;  border:2px solid rgb(255, 0, 0);" height="50px"; id="avatar" alt="">
-            <p id="movieName"></p>
-        </div>
-        <div id="iframeHolder">
-            <p id="streamLogo" style="font-size: large; font-weight: bold; position: absolute; margin-right: 60%
+        <div>
+           
+            <div>
+                <div id="avatarDiv">
+                    <button style="
+                    cursor: pointer;
+                    margin-right: 3%;
+                    margin-top: .2%;
+                    width:60px;
+                    background-color: transparent;
+                    border: 1px solid transparent;
+                    border-radius: 5px;
+                    font-size: 30px;
+                    color: red;
+                    height: 40px;
+                    "
+                     onclick="window.location.href='/html/Home.html';">Home</button>
+                    <img src="" style="width: 50px; border-radius: 80%;  border:2px solid rgb(255, 0, 0);" height="50px"
+                        ; id="avatar" alt="">
+                    <p id="movieName"></p>
+                </div>
+                <div id="iframeHolder">
+                    <p id="streamLogo" style="font-size: large; font-weight: bold; position: absolute; margin-right: 60%
             ;margin-top: 65%;">Stream<span style="color: red;">See</span></p>
-            <iframe id="movieFrame" sandbox="allow-presentation allow-scripts allow-popups allow-pointer-lock allow-same-origin" src="" frameborder="0"  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen Access-Control-Allow-Origin>
+                    <!-- iframe holding video trailer content -->
+                    <iframe id="movieFrame"
+                        sandbox="allow-presentation allow-scripts allow-popups allow-pointer-lock allow-same-origin"
+                        src="" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+                        Access-Control-Allow-Origin>
+                    </iframe>
+                </div>
+                <div id="others">
+                    <div id="othersHolder">
 
-            </iframe>
-        </div>
-        <div id="othersHolder">
+                    </div>
+                    <div id="othersHolder_2">
 
-        </div>
-    </div>
+                    </div>
+                    <!-- <div id="othersHolder_3">
+    
+            </div>
+            <div id="othersHolder_4">
+    
+            </div> -->
+                </div>
+            </div>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 <script src="/js/Player.js"></script>
+
 </html>

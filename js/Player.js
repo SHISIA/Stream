@@ -1,6 +1,10 @@
 const movieFrame = document.getElementById("movieFrame");
 const movieName = document.getElementById("movieName");
 const similarMovies = document.getElementById("othersHolder");
+const similarMovies2 = document.getElementById("othersHolder_2");
+// const similarMovies3 = document.getElementById("othersHolder_3");
+// const similarMovies4 = document.getElementById("othersHolder_4");
+// const similarMovies5 = document.getElementById("othersHolder_5");
 const avatar = document.getElementById("avatar");
 
 //html url link params
@@ -24,7 +28,7 @@ let linkHeader = "https://www.youtube.com/embed/";
 
 // for movie search info : for latest movies to populate space below trailer
 let api_key = "api_key=f3fa058a0294c6f7b1d786efd12e5aa0";
-let urlMovie = "https://api.themoviedb.org/3/movie/now_playing?" + api_key + "&language=en-US&page=1&include_adult=false&query=";
+let urlMovie = "https://api.themoviedb.org/3/movie/now_playing?" + api_key + "&language=en-US&include_adult=false";
 
 let urlTv = "https://api.themoviedb.org/3/tv/top_rated?" + api_key + "&language=en-US&page=1&include_adult=false&query=";
 
@@ -68,7 +72,16 @@ async function loadTrailer() {
     let response = await myObject.json();
     checkVideoType(response);
     for (let index = 0; index <= 19; index++) {
-        loadSimilarMovies(index);
+        loadSimilarMovies(similarMovies,index,"&page=1");
+    }
+    for (let index = 0; index <=19; index++) {
+        loadSimilarMovies(similarMovies,index,'&page=3');
+    }
+    for (let index = 0; index <=19; index++) {
+        loadSimilarMovies(similarMovies2,index,'&page=2');
+    }
+    for (let index = 0; index <=19; index++) {
+        loadSimilarMovies(similarMovies2,index,'&page=4');
     }
 }
 
@@ -111,12 +124,12 @@ function setAndPlayVideo(videoLink) {
 
 
 
-async function loadSimilarMovies(movieIndex) {
+async function loadSimilarMovies(element,movieIndex,page) {
     let myObject;
     let response;
     let movieTitle;
     if (mediaType === "movie") {
-        myObject = await fetch(`${urlMovie}`);
+        myObject = await fetch(`${urlMovie}`+page);
         response = await myObject.json();
         movieTitle = response.results[movieIndex].title;
     } else {
@@ -126,12 +139,12 @@ async function loadSimilarMovies(movieIndex) {
     }
     console.log("similar id ", response.results[movieIndex].id);
 
-    similarMovies.innerHTML +=
+        element.innerHTML +=
         `
         <div style=
         "
         display:flex;
-        padding:8px;
+        padding:8p
         height:110px;
         ">
             <div style=" 
@@ -144,6 +157,7 @@ async function loadSimilarMovies(movieIndex) {
             height:110px;
             cursor:pointer;
             border:.5px solid grey;
+            margin-bottom:15%;
             "
             onclick="openSelectedMedia('${response.results[movieIndex].id}','${mediaType}')"
             >
@@ -156,7 +170,7 @@ async function loadSimilarMovies(movieIndex) {
             >
             <p style=
             "
-            margin-top:5%;
+            margin-top:2%;
             margin-bottom:11%;
             font-size:20px;
             color:red;
@@ -166,12 +180,14 @@ async function loadSimilarMovies(movieIndex) {
             font-size:10px;
             margin-top:-8%;
             color:white;
+            width:90%;
             ">
                 ${response.results[movieIndex].overview}
             </p>
             </div>
         </div>
     `
+
 }
 
 
