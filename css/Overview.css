@@ -3,8 +3,17 @@ body {
    background-size: cover;
     background-repeat: no-repeat;
     background-size: 100vw 100vh;
+    background-color: #000000;
     position: relative;
+    font-family: 'Josefin Slab', serif;
+     top: 0;
+     left: 0;
+     padding: 0%;
+     margin: 0;
+
 }
+
+
 
 body::before {
     content: "";
@@ -27,10 +36,10 @@ body::before {
     z-index: 1;
   }
 
-/* #parent{
+#parent{
     position: fixed;
     z-index: 1;
-} */
+}
 
 /* the first div holding the top navigation buttons and sitename  */
 #nav {
@@ -60,6 +69,7 @@ body::before {
     color: rgb(9, 0, 0);
     -webkit-text-stroke-width: .8px;
     -webkit-text-stroke-color: #ffffff;
+    z-index: 0;
 }
 
 /* play button container */
@@ -109,4 +119,127 @@ body::before {
     color: whitesmoke;
     font-size: 20px;
     cursor: pointer;
+    z-index: 1;
+}
+@media only screen and (max-width:768px){
+    .Genre,#watchButton,#genreDiv,#desktopTitle,
+    #watchButton,#mainDesktopDiv,#desktopDiv,#mainDesktopDiv
+    ,#movieSummary,#infoDiv,#poster,#summaryAndButton{
+        display: none;
+    }
+}
+
+@media only screen and (min-width:768px){
+    #title,#siteName,#titlePart{
+        visibility:hidden;
+    } 
+    #playDiv,#playButton{
+        display: hidden;
+    }
+body{
+    background-size: 100vw 100vh;
+    background-color: #000000;
+    /* background-image: black; */
+    position: relative;
+    font-family: 'Josefin Slab', serif;
+     top: 0;
+     left: 0;
+     padding: 0%;  
+     margin: 0;
+} 
+/* these are set to invisible to be seen on desktop view */
+
+.Genre{
+    color: whitesmoke;
+    font-size: 20px;
+    text-align: left;
+    margin-left: 2%;
+}
+/* div holding the genres */
+#genreDiv{
+    display: flex;
+    margin-bottom: -4%;
+}
+/* div holding the title to the desktop */
+#desktopTitle{
+    font-size: 60px;
+    color: rgb(255, 255, 255);
+    margin-left: 1%;
+    text-align: left;
+}
+/* the "Watch Trailer" Button */
+#watchButton{
+    margin-top: -45%;
+    width: 400px;
+    height: 60px;
+    text-align: center;
+    background-color: rgb(194, 23, 23);
+    border-radius: 5px;
+    cursor: pointer;
+    color: whitesmoke;
+    border: 3px solid whitesmoke;
+    font-size: 18px;
+    z-index: 0;
+    margin-left: 1%;
+}
+/*  */
+#mainDesktopDiv{
+    margin-top: -15%;
+    width: 100%;
+    background-size: cover;
+    /* height: 100%; */
+    left: 0;
+    right: 0;
+    padding: 0;
+}
+/* div holding the desktop items */
+#desktopDiv{
+    background-color: rgb(7, 0, 0,.8);
+    width: 100vw;
+    display:flex;
+    padding: 20px;
+    z-index: 1;
+    height: 100vh;
+    margin-top: -5%;
+}
+
+/* arranges the two desktop divs: the info and poster */
+#mainDesktopDiv{
+    display: flex;
+    z-index: 1;
+    padding-top: 0px;
+    justify-content: center;
+    width: 100vw;
+}
+/* movie overview */
+#movieSummary{
+    display: flex;
+    color: whitesmoke;
+    width: 80%;
+    margin: 1%;
+    font-size: x-large;
+    margin-bottom: 3%;
+}
+#infoDiv{
+    justify-content: center;
+    margin: 10%;
+    margin-top: 12%;
+}
+#poster{
+    margin-top: 20%;
+    margin-right:10%;
+    padding: 10px;
+    width: 60vh;
+    margin-right: 10%;
+    z-index: 1;
+}
+/*  */
+#summaryAndButton{
+    margin-top: -3%;
+    justify-content: space-between;
+}
+#backButton{
+    display: none;
+}
+    
 }

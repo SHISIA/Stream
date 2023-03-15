@@ -4,6 +4,15 @@ let title = document.getElementById("title");
 let playButton = document.getElementById("playButton");
 let summary = document.getElementById("description");
 let backButton = document.getElementById("backButton");
+let overview = document.getElementById("movieSummary");
+let movieTitle = document.getElementById("desktopTitle");
+let watchButton = document.getElementById("watchButton");
+let poster = document.getElementById("poster");
+let genres = document.getElementsByClassName("Genre");
+let firstGenre = genres[0];
+let secondGenre = genres[1];
+let thirdGenre = genres[2];
+
 // const searchButton = document.getElementById("searchButton"); 
 // const search = document.getElementById("search");
 const release_date = document.getElementById("release_date");
@@ -47,6 +56,10 @@ playButton.onclick = ()=>{
     openSelectedMedia(filmId,paramMediaType);
 }
 
+watchButton.onclick = ()=>{
+    openSelectedMedia(filmId,paramMediaType);
+}
+
 
 
 // api prerequisites
@@ -64,6 +77,7 @@ async function loadResults() {
             document.body.style.backgroundImage = `url(${imagePath}${data.poster_path})`;
             console.log(paramMediaType, " ", data)
             title.innerText = `${data.name}`;
+            movieTitle.innerText = `${data.name}`;
             summary.innerText = `${data.overview}`;
             release_date.innerHTML =
                 `
@@ -78,10 +92,28 @@ async function loadResults() {
             response = await fetch(`${url}`);
             let data = await response.json();
             console.log("data prijng ", data);
-            document.body.style.backgroundImage = `url(${imagePath}${data.poster_path})`;
-            console.log(paramMediaType, " ", data)
+            document.body.style.backgroundImage = `url(${imagePath}${data.backdrop_path})`;
+            poster.src = `${imagePath}${data.poster_path}`;
             title.innerText = `${data.title}`;
+            movieTitle.innerText = `${data.title}`;
+            movieTitle.style.color="red";
             summary.innerText = `${data.overview}`;
+            let genres = data.genres.length;
+            if(genres===3){
+                firstGenre.innerText = data.genres[0].name;
+                secondGenre.innerText = data.genres[1].name;
+                secondGenre.style.color="red";
+                thirdGenre.innerText = data.genres[2].name;
+            }else if(genres===2){
+                firstGenre.innerText = data.genres[0].name;
+                secondGenre.innerText = data.genres[1].name;
+                secondGenre.style.color="red";
+            }else if(genres==1){
+                firstGenre.innerText = data.genres[0].name;
+                firstGenre.style.color="red";
+            }
+
+            overview.innerText = data.overview;
             release_date.innerHTML =
                 `
            <div style="display:flex; word-spacing:">

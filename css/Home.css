@@ -624,4 +624,8 @@ input {
     height: 20px;
   }
 
+  #lowerThird{
+    display: none;
+  }
+
 }
