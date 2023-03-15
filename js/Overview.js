@@ -77,11 +77,24 @@ async function loadResults() {
             document.body.style.backgroundImage = `url(${imagePath}${data.poster_path})`;
             console.log(paramMediaType, " ", data)
             title.innerText = `${data.name}`;
-            movieTitle.innerText = `${data.name}`;
-            summary.innerText = `${data.overview}`;
+            movieTitle.textContent = data.name;
+            summary.textContent = data.overview;
+            let genres = data.genres.length;
+            if(genres===3){
+                firstGenre.innerText = data.genres[0].name;
+                secondGenre.innerText = data.genres[1].name;
+                secondGenre.style.color="red";
+                thirdGenre.innerText = data.genres[2].name;
+            }else if(genres===2){
+                firstGenre.innerText = data.genres[0].name;
+                secondGenre.innerText = data.genres[1].name;
+                secondGenre.style.color="red";
+            }else if(genres==1){
+                firstGenre.innerText = data.genres[0].name;
+                firstGenre.style.color="red";
+            }
             release_date.innerHTML =
-                `
-            <div style="display:flex; word-spacing:">
+                `<div style="display:flex; word-spacing:">
             <p style="color:red; font-size:15px">Release Date:&nbsp;&nbsp;&nbsp;</p>
             <p style="color:white; font-size:15px"> 
             ${data.first_air_date}

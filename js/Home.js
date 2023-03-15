@@ -239,22 +239,6 @@ function hidePreview() {
   desktopPreview.style.display = "none";
 }
 
-// loads the preview template with movie data when a movie item is loaded
-// function hoverAndPreview(poster, title, vote_average,release_date, media_type, original_language,id,outerView)
-// {
-//   console.log(outerView)
-//   getOverView(description,id);
-//   desktopPreview.style.display = "flex";
-//   desktopPreview.style.cursor = "pointer";
-//   desktopPreviewCover.src = poster;
-//   prevTitle.innerText = title;
-//   prevRatingValue.innerText = vote_average;
-//   releaseDate.textContent = release_date;
-//   description.innerText=outerView;
-//   duration.textContent = media_type;
-//   genre.textContent = original_language.toUpperCase();
-// }
-
 // loads the set cateogries and specified results page as declared by the API
 function loadCategories() {
   for (let i = 0; i <= 9; i++){

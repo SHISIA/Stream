@@ -1,5 +1,11 @@
 let categoryParent = document.getElementById("categoryHolder");
 let category = document.getElementById("category");
+let category2 = document.getElementById("category2");
+let category3 = document.getElementById("category3");
+let category4 = document.getElementById("category4");
+let category5 = document.getElementById("category5");
+
+
 let categoryTitle = document.getElementById("categoryTitle");
 let backButton = document.getElementById("backButton");
 
@@ -18,37 +24,37 @@ const paramTitle = decryptParams(encryptedParams).type;
 
 
 // api prerequisites
-let imagePath = "https://image.tmdb.org/t/p/w500"; 
+let imagePath = "https://image.tmdb.org/t/p/w500";
 let api_key = "api_key=f3fa058a0294c6f7b1d786efd12e5aa0";
 
-let trendingMovie = "https://api.themoviedb.org/3/trending/movie/day?"+api_key;
-let trendingAll = "https://api.themoviedb.org/3/trending/all/day?"+api_key;
-let trendingTVShows = "https://api.themoviedb.org/3/trending/tv/day?"+api_key;
-let latestTV = "https://api.themoviedb.org/3/tv/latest?"+api_key;
-let latestMovie = "https://api.themoviedb.org/3/movie/latest?"+api_key;
-let popularMovies = "https://api.themoviedb.org/3/movie/popular?"+api_key;
-let popularTV = "https://api.themoviedb.org/3/tv/popular?"+api_key;
-let upcoming = "https://api.themoviedb.org/3/movie/upcoming?"+api_key;
+let trendingMovie = "https://api.themoviedb.org/3/trending/movie/day?" + api_key;
+let trendingAll = "https://api.themoviedb.org/3/trending/all/day?" + api_key;
+let trendingTVShows = "https://api.themoviedb.org/3/trending/tv/day?" + api_key;
+let latestTV = "https://api.themoviedb.org/3/tv/latest?" + api_key;
+let latestMovie = "https://api.themoviedb.org/3/movie/latest?" + api_key;
+let popularMovies = "https://api.themoviedb.org/3/movie/popular?" + api_key;
+let popularTV = "https://api.themoviedb.org/3/tv/popular?" + api_key;
+let upcoming = "https://api.themoviedb.org/3/movie/upcoming?" + api_key;
 
 
 // loads the results for the clicked on home tag
-async function loadSelectedCategory(element,url,movie_id,type){
+async function loadSelectedCategory(element, url, movie_id, type) {
     try {
         let response = await fetch(`${url}`)
         let data = await response.json();
-        console.log("data",data);
-            let filmType = type.toString(); 
-            switch(filmType){
-                case "tv":
-                  tvLoad(element,data,movie_id,movie_id);
-                  break;
-                case "movie":
-                  movieLoad(element,data,movie_id);
-                  break; 
-                default:
-                    movieLoad(element,data,movie_id);
-                    break;
-            }
+        console.log("data", data);
+        let filmType = type.toString();
+        switch (filmType) {
+            case "tv":
+                tvLoad(element, data, movie_id, movie_id);
+                break;
+            case "movie":
+                movieLoad(element, data, movie_id);
+                break;
+            default:
+                movieLoad(element, data, movie_id);
+                break;
+        }
 
     } catch (error) {
         console.log("");
@@ -60,31 +66,31 @@ function encryptParams(params) {
     const key = "c7974249b02fhiukjn7";
     const encrypted = CryptoJS.AES.encrypt(JSON.stringify(params), key).toString();
     return encodeURIComponent(encrypted);
-  }
+}
 
 //   back button: to previous page
-  backButton.onclick = ()=> {
+backButton.onclick = () => {
     window.history.back();
-  }
+}
 
 // function to load when movie item is clicked
-function openSelectedMedia(value,mediaType){
+function openSelectedMedia(value, mediaType) {
     const encryptedParams = {
-        name:value,
-        type:mediaType
+        name: value,
+        type: mediaType
     };
     const encryptedValue = encryptParams(encryptedParams);
-    window.location=`/html/Overview.html?param=${encryptedValue}`;
+    window.location = `/html/Overview.html?param=${encryptedValue}`;
 }
 
 // Movie result template : kindly look at tvLoad function comments 
-function movieLoad(element,data,movie_id){
+function movieLoad(element, data, movie_id) {
     let capializedTitle = paramTitle.charAt(0).toUpperCase() + paramTitle.substring(1);
-    let mediaType="movie";
-    categoryTitle.innerText=capializedTitle;
+    let mediaType = "movie";
+    categoryTitle.innerText = capializedTitle;
     document.body.style.backgroundImage = `url(${imagePath}${data.results[0].poster_path})`;
-    element.innerHTML+=
-    `
+    element.innerHTML +=
+        `
     <div style="
         width:50%;
         margin-bottom:20px;
@@ -131,16 +137,16 @@ function movieLoad(element,data,movie_id){
 
 
 // tv results template : the api responds with different json query methods for movies and tv so this called for different templates : same for movies just above
-function tvLoad(element,data,movie_id){
+function tvLoad(element, data, movie_id) {
     let capializedTitle = paramTitle.charAt(0).toUpperCase() + paramTitle.substring(1);
-    let mediaType="tv";
-    if(capializedTitle.toLowerCase()==="tvshows"){
-        capializedTitle="TV Shows"
+    let mediaType = "tv";
+    if (capializedTitle.toLowerCase() === "tvshows") {
+        capializedTitle = "TV Shows"
     }
-    categoryTitle.innerText=capializedTitle;
+    categoryTitle.innerText = capializedTitle;
     document.body.style.backgroundImage = `url(${imagePath}${data.results[0].poster_path})`;
-    element.innerHTML+=
-    `
+    element.innerHTML +=
+        `
     <div style="
         width:50%;
         margin-bottom:20px;
@@ -184,40 +190,52 @@ function tvLoad(element,data,movie_id){
     `
 }
 
-function pageOne(link,type){
-for(let i=0;i<=19;i++){
-        loadSelectedCategory(category,link,i,type)
+function pageOne(link, type) {
+    for (let i = 0; i <= 19; i++) {
+        loadSelectedCategory(category, link, i, type)
+    }
+    for (let i = 0; i <= 19; i++) {
+        loadSelectedCategory(category2, link+"&page=2", i, type)
+    }
+    for (let i = 0; i <= 19; i++) {
+        loadSelectedCategory(category3, link+"&page=3", i, type)
+    }
+    for (let i = 0; i <= 19; i++) {
+        loadSelectedCategory(category4, link+"&page=4", i, type)
+    }
+    for (let i = 0; i <= 19; i++) {
+        loadSelectedCategory(category5, link+"&page=5", i, type)
     }
 }
 
-function loadPage(){
-    console.log("title param",paramTitle);
-    switch(paramTitle){
+function loadPage() {
+    console.log("title param", paramTitle);
+    switch (paramTitle) {
         case "movies":
-            pageOne(trendingMovie,"movie");
+            pageOne(trendingMovie, "movie");
             console.log(paramTitle)
             break;
         case "tvshows":
-            pageOne(trendingTVShows,"tv");
+            pageOne(trendingTVShows, "tv");
             console.log(paramTitle)
             break;
-            
+
         case "popular":
-            pageOne(popularTV,"tv");
-            pageOne(popularMovies,"movie");
+            pageOne(popularTV, "tv");
+            pageOne(popularMovies, "movie");
             console.log(paramTitle)
             break;
         case "trending":
-            pageOne(trendingMovie,"movie");
-            pageOne(trendingTVShows,"tv")
+            pageOne(trendingMovie, "movie");
+            pageOne(trendingTVShows, "tv")
             console.log(paramTitle)
-            break; 
+            break;
         case "upcoming":
-            pageOne(upcoming,"movie");
+            pageOne(upcoming, "movie");
             console.log(paramTitle)
             break;
         default:
-            pageOne(trendingAll); 
+            pageOne(trendingAll);
             console.log(paramTitle)
             break;
     }

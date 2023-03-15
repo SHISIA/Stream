@@ -66,6 +66,7 @@ async function resultLoad(element,movie_id,mediaType){
     searchTitle.innerText = capializedTitle;
     //sets page background image
     document.body.style.backgroundImage = `url(${imagePath}${data.results[0].poster_path})`;
+    document.body.style.backgroundSize="cover";
     if(mediaType=="movie"){
         name=data.results[movie_id].title;
         release_date=data.results[movie_id].release_date;
