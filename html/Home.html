@@ -22,6 +22,24 @@
             <i class="fa-solid fa-search searchIcon" style="font-size: large; color: aliceblue;"></i>
         </button>
     </div>
+    <!-- holds the menu bar -->
+    <div id="menuModal" class="modal">
+            <ul>
+                <li>
+                    <span class="close" id="menuClose">&times;</span>
+                </li>
+                <li>
+                    <button onclick="location.href='#lowerSecond'" class="navButton" id="about">About</button>
+                </li>
+                <li>
+                    <button onclick="location.href='#lowerThird'" class="navButton" id="hire">Hire Me</button>
+                </li>
+                <li>
+                    <button class="navButton" id="message" onclick="location.href='#lowerFirst'">Message Me</button>
+                </li>
+            </ul>
+
+    </div>
     <div id="tagMenu">
         <button type="submit" id="moviesTag" class="tag"> Movies</button>
         <button type="submit" id="tvShowsTag" class="tag">TV Shows</button>
@@ -139,36 +157,15 @@
     <!-- pops up search field when search button is clicked.  -->
     <div id="myModal" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
+            <span class="close" id="searchClose">&times;</span>
             <input type="text" name="" placeholder="Search..." id="searchField">
-            <button id="search"
-                style="background-color: transparent;text-align: center; cursor: pointer;color: aliceblue; width: 30%; height: 10px;border-color: black; border-radius: 10px;">
+            <button id="search" style="background-color: transparent;text-align: center; cursor: pointer;color: aliceblue; width: 30%; height: 10px;border-radius: 10px;
+                border: 1px solid transparent;">
                 <i class="fa-solid fa-search" style="font-size: large; color: rgb(254, 254, 254);"></i>
             </button>
         </div>
     </div>
 
-    <!-- holds the menu bar -->
-    <div id="menuModal" class="modal">
-        <div class="menuModal-content">
-            <ul>
-                <li>
-                    <span class="close" id="menuClose">&times;</span>
-                </li>
-                <li>
-                    <button onclick="location.href='#lowerSecond'"
-                    class="navButton" id="about">About</button>
-                </li>
-                <li>
-                    <button onclick="location.href='#messageDiv'"
-                     class="navButton" id="hire">Hire Me</button>
-                </li>
-                <li>
-                    <button class="navButton" id="message" onclick="location.href='#messageDiv'">Message Me</button>
-                </li>
-            </ul>
-        </div>
-    </div>
 
     <!-- top div holding the number one trendig movie . The first poster in the   -->
     <div id="previewDiv">
@@ -262,25 +259,25 @@
                 <p style="font-size: 40px;">Contact Us</p>
                 <!-- phone div: contains phone number and icon -->
                 <div id="phoneDiv">
-                    <img src="/img/phone.png" width="30px" height="40px" style="margin-left:20%;" alt="">
-                    <p style="font-size: 18px;
+                    <img class="icon" id="phoneDivImg" src="/img/phone.png" width="30px" height="40px" style="margin-left:20%;" alt="">
+                    <p class="info" style="font-size: 18px;
                     color: rgb(215, 12, 12);
                     margin-right: 25%;
-                    margin-left:-30%;">+254724604146</p>
+                    margin-left:-30%;" id="number">+254724604146</p>
                 </div>
                 <!-- email div :contains email icon and email at lower page-->
                 <div id="emailDiv">
-                    <img src="/img/email.png" width="30px" height="40px" style="margin-left:20%;" alt="">
-                    <p style="font-size: 18px; 
+                    <img class="icon" src="/img/email.png" width="30px" height="40px" style="margin-left:20%;" alt="">
+                    <p class="info" style="font-size: 18px; 
                     color: rgb(250, 247, 247);
                     margin-right: 4%;">
                         jamesshisia6@gmail.com</p>
                 </div>
                 <!-- location div:contains location icon and location info -->
                 <div id="locDiv">
-                    <img src="/img/location.png" width="30px" height="40px" style="margin-left:20%;
+                    <img class="icon" src="/img/location.png" width="30px" height="40px" style="margin-left:20%;
                     text-align: left;" alt="">
-                    <p style="font-size: 18px;
+                    <p class="info" style="font-size: 18px;
                     color: rgb(220, 15, 15);
                     margin-right: 25%;
                     ">Nairobi , Kenya</p>

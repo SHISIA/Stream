@@ -1,7 +1,15 @@
+html {
+  scroll-behavior: smooth;
+}
+
 /* body default style  */
 body {
   color: aliceblue;
   background-color: black;
+  margin: 0%;
+  padding: 0%;
+  top: 0;
+  left: 0;
 }
 
 /* the site's name */
@@ -236,6 +244,8 @@ input {
   width: 100%;
   height: 25%;
   margin: 0%;
+  z-index: 1;
+  /* margin-top: 30%; */
   position: relative;
   /* border-radius: 10% 200% 10% 10%; */
 }
@@ -260,28 +270,30 @@ input {
 #trendingDiv2,
 #trendingDiv3,
 #comingSoonDiv2,
-#comingSoonDiv3{
+#comingSoonDiv3 {
   display: none;
 }
 
-#hoverInfoDiv{
+#hoverInfoDiv {
   display: none;
 }
 
 /* lowerSection: The last info area on the front page */
-#lowerPage{
-  justify-self:center;
+#lowerPage {
+  justify-self: center;
   display: inline;
   width: 90vw;
   overflow: hidden;
-  padding:5px;
+  padding: 5px;
   font-family: 'Josefin Slab', serif;
   word-wrap: break-word;
   font-size: 17px;
   justify-content: space-between;
 }
 
-#lowerFirst,#lowerSecond,#lowerThird{
+#lowerFirst,
+#lowerSecond,
+#lowerThird {
   margin: 0.5%;
   text-align: center;
   font-size: 20px;
@@ -291,12 +303,14 @@ input {
   border-radius: 10px;
   padding: 30px;
 }
-#emailField{
+
+#emailField {
   width: 50vw;
   height: 40px;
   border: 1px solid red;
 }
-#sendButton{
+
+#sendButton {
   height: 49px;
   width: 51.5vw;
   margin: 0;
@@ -308,24 +322,28 @@ input {
   cursor: pointer;
   border-radius: 1px;
 }
+
 /* email input field */
-#emailField{
+#emailField {
   color: whitesmoke;
   border-radius: 1px;
 }
+
 /* emil field placeholder: default text */
-#emailField::placeholder{
+#emailField::placeholder {
   color: rgb(195, 195, 195);
   font-size: 16px;
   text-align: center;
 }
 
-#lowerSiteName{
+#lowerSiteName {
   margin-top: 6%;
   color: red;
 }
 
-#phoneDiv,#emailDiv,#locDiv{
+#phoneDiv,
+#emailDiv,
+#locDiv {
   display: flex;
   justify-content: space-between;
 }
@@ -333,9 +351,9 @@ input {
 /**Optimization for large screen**/
 @media only screen and (min-width: 768px) {
 
-  body{
+  body {
     font-family: 'Josefin Slab', serif;
-    margin:.5%;
+    margin: .5%;
   }
 
   /* For desktop: */
@@ -353,7 +371,7 @@ input {
     color: red;
   }
 
-  #previewDiv{
+  #previewDiv {
     display: none;
   }
 
@@ -534,13 +552,14 @@ input {
     margin-left: 0%;
   }
 
-  #comingSoonMenuHolder{
+  #comingSoonMenuHolder {
     display: inline-block;
     white-space: nowrap;
   }
+
   /* show the movie hover preview in Desktop  */
   .desktopPreview {
-    display:flex;
+    display: flex;
     justify-content: left;
     margin-left: 5%;
     border: solid 1px rgb(148, 129, 129);
@@ -549,19 +568,22 @@ input {
     margin-bottom: 3%;
     border-radius: 5px;
   }
-/* preview image */
-  #desktopPreviewCover{
+
+  /* preview image */
+  #desktopPreviewCover {
     width: 500px;
     height: 350px;
   }
+
   /* cover info */
-  #prevInfo{
+  #prevInfo {
     margin-left: 1%;
-    background-color:rgb(0, 0, 0);
+    background-color: rgb(0, 0, 0);
     z-index: 1;
   }
+
   /* cover preview title */
-  #prevTitle{
+  #prevTitle {
     font-size: 35px;
     margin: 0;
     font-weight: bolder;
@@ -569,21 +591,25 @@ input {
     letter-spacing: 5px;
     margin-top: 5%;
   }
+
   /* cover preview rating text */
-  #prevRating{
+  #prevRating {
     font-size: 20px;
     margin-top: 0%;
   }
-  #prevProgress{
+
+  #prevProgress {
     width: 100%;
     overflow: hidden;
   }
- progress{
-   -webkit-appearance: none;
-   /* background: orangered; */
- }
-   /* progress fill color */
-   progress::-webkit-progress-bar {
+
+  progress {
+    -webkit-appearance: none;
+    /* background: orangered; */
+  }
+
+  /* progress fill color */
+  progress::-webkit-progress-bar {
     /* background-color: rgb(249, 248, 255); */
     background: rgb(255, 255, 255);
     width: 25%;
@@ -599,34 +625,64 @@ input {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   }
+
   /**disabled the more button both in the upcoming films and trending movies**/
   #moreBtn,
   #moreBtnTrending {
     display: none;
   }
+
   /* rating value */
-  #prevRatingValue{
+  #prevRatingValue {
     margin: 0%;
     font-size: 20px;
     color: red;
   }
 
   /* description of the hovered movie */
-  #description{
+  #description {
     max-width: 80%;
     font-size: 18px;
-    margin-top:0%;
+    margin-top: 0%;
   }
 
   /* ratings star icons*/
-  .rating{
+  .rating {
     margin: 0%;
     width: 20px;
     height: 20px;
   }
 
-  #lowerThird{
+  /*  */
+  #lowerThird {
+    display: inline;
+    font-size: 40px;
+  }
+
+  .icon {
     display: none;
+    /* justify-content: space-between; */
+  }
+
+  .info{
+    text-align: left;
+    margin: 2%;
+    margin-left: 45%;
+  }
+
+  #phoneDivImg,#number{
+    margin:0%;
+  }
+
+  /* container holding the menu buttons */
+  #menuModal {
+    background: #020105;
+    width: 100%;
+    height: 25%;
+    margin: 0%;
+    /* margin-top: -50%; */
+    position: relative;
+    /* border-radius: 10% 200% 10% 10%; */
   }
 
 }

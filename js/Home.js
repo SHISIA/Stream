@@ -17,8 +17,8 @@ const moreBtn = document.getElementById("moreBtn");
 
 
 // Get the close button and add an event listener
-var close = document.getElementsByClassName("close")[0];
-var menuClose = document.getElementsByClassName("close")[1];
+var close = document.getElementById("searchClose");
+var menuClose = document.getElementById("menuClose");
 
 close.addEventListener("click", function () {
   myModal.style.display = "none";
@@ -33,7 +33,7 @@ menuClose.addEventListener("click", function () {
 menuButton.addEventListener("click", function () {
   menuModal.style.display = "block";
   menuButton.style.display = "none"
-  menuModal.style.marginTop = "15%";
+  menuModal.style.marginTop = "-3%";
 });
 
 // Add an event listener to the button
@@ -64,7 +64,6 @@ search.addEventListener("click", function () {
 // variables
 // let name , releaseDate,ratings , fullImage, trailer, backdropImage, popularity,genre;
 let comingSoonUrl = "https://api.themoviedb.org/3/movie/upcoming?api_key=f3fa058a0294c6f7b1d786efd12e5aa0&language=en-US&include_adult=false";
-
 
 // encrypt params
 function encryptParams(params) {
