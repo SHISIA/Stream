@@ -654,10 +654,11 @@ input {
   }
 
   /*  */
-  #lowerThird {
+  /* #lowerThird {
     display: inline;
     font-size: 40px;
-  }
+    border-color: red;
+  } */
 
   .icon {
     display: none;
@@ -676,7 +677,7 @@ input {
 
   /* container holding the menu buttons */
   #menuModal {
-    background: #020105;
+    background: #000000;
     width: 100%;
     height: 25%;
     margin: 0%;

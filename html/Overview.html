@@ -12,35 +12,24 @@
 </head>
 
 <body>
+
     <div id="parent">
-        <div id="nav">
-            <button type="submit" id="backButton">
-                <i class="fa-solid fa-angle-left">
-                </i>
-            </button>
-            <p id="siteName">Stream<span id="titlePart">See</span></p>
-        </div>
-        <div id="content">
-            <p id="title">
-                
-            </p>
-        </div>
+        <!-- holds the desktop view -->
         <div id="mainDesktopDiv">
             <div id="desktopDiv">
                 <div id="infoDiv">
                     <button style="
-                    cursor: pointer;
-                    margin-right: 3%;
-                    margin-top: .2%;
-                    width:60px;
-                    background-color: transparent;
-                    border: 1px solid transparent;
-                    border-radius: 5px;
-                    font-size: 30px;
-                    color: red;
-                    height: 40px;
-                    "
-                     onclick="window.location.href='/html/Home.html';">Home</button>
+                cursor: pointer;
+                margin-right: 3%;
+                margin-top: .2%;
+                width:60px;
+                background-color: transparent;
+                border: 1px solid transparent;
+                border-radius: 5px;
+                font-size: 30px;
+                color: red;
+                height: 40px;
+                " onclick="window.location.href='/html/Home.html';">Home</button>
                     <div id="genreDiv">
                         <p class="Genre"></p>
                         <p class="Genre"></p>
@@ -51,16 +40,16 @@
                     </div>
                     <div id="summaryAndButton">
                         <p id="movieSummary">
-                            
+
                         </p>
                         <br>
                         <br>
                         <button id="watchButton">Watch Trailer</button>
-                                        <!-- <i class="fa-solid fa-play" style="
-                                        position:fixed;
-                                        margin-left: -12%;
-                        -webkit-text-stroke: 8px rgb(255, 255, 255);
-                        "></i> -->
+                        <!-- <i class="fa-solid fa-play" style="
+                                    position:fixed;
+                                    margin-left: -12%;
+                    -webkit-text-stroke: 8px rgb(255, 255, 255);
+                    "></i> -->
                     </div>
                 </div>
                 <div>
@@ -68,24 +57,37 @@
                 </div>
             </div>
         </div>
-        
-        <div id="playDiv">
-            <button type="submit" id="playButton">
-                <i class="fa-solid fa-play" style="color: rgb(255, 0, 0);
-                text-shadow: -1px -1px 0 #080000, 1px -1px 0 #000000, -1px 1px 0 #040000, 1px 1px 0 #000000;
-                -webkit-text-stroke: 8px rgb(255, 255, 255);
-                "></i>
-            </button>
-        </div>
-        <div id="descriptionDiv">
-            <p id="description">
-                StreamSee
-            </p>
-            <p id="release_date">
-                Release Date :
-            </p>
-        </div>
-        <div id="similarMovies">
+        <div id="mobile">
+            <div id="nav">
+                <button type="submit" id="backButton">
+                    <i class="fa-solid fa-angle-left">
+                    </i>
+                </button>
+                <p id="siteName">Stream<span id="titlePart">See</span></p>
+            </div>
+            <div id="content">
+                <p id="title">
+    
+                </p>
+            </div>
+            <div id="playDiv">
+                <button type="submit" id="playButton">
+                    <i class="fa-solid fa-play" style="color: rgb(255, 0, 0);
+                    text-shadow: -1px -1px 0 #080000, 1px -1px 0 #000000, -1px 1px 0 #040000, 1px 1px 0 #000000;
+                    -webkit-text-stroke: 8px rgb(255, 255, 255);
+                    "></i>
+                </button>
+            </div>
+            <div id="descriptionDiv">
+                <p id="description">
+                    StreamSee
+                </p>
+                <p id="release_date">
+                    Release Date :
+                </p>
+            </div>
+            <div id="similarMovies">
+            </div>
         </div>
     </div>
 </body>

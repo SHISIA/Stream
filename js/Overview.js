@@ -65,20 +65,21 @@ watchButton.onclick = ()=>{
 // api prerequisites
 let imagePath = "https://image.tmdb.org/t/p/w500";
 let api_key = "api_key=f3fa058a0294c6f7b1d786efd12e5aa0";
-let url = "https://api.themoviedb.org/3/movie/" + filmId + "?" + api_key + "&language=en-US&page=1&include_adult=false&query=";
-let urlTv = "https://api.themoviedb.org/3/tv/" + filmId + "?" + api_key + "&language=en-US&page=1&include_adult=false&query=";
+let url = "https://api.themoviedb.org/3/movie/" + filmId + "?" + api_key + "&language=en-US&page=1&include_adult=false";
+let urlTv = "https://api.themoviedb.org/3/tv/" + filmId + "?" + api_key + "&language=en-US&page=1&include_adult=false";
 
 async function loadResults() {
     try {
         let response;
-        if (paramMediaType == "tv") {
+        if (paramMediaType === "tv") {
             response = await fetch(`${urlTv}`);
             let data = await response.json();
             document.body.style.backgroundImage = `url(${imagePath}${data.poster_path})`;
-            console.log(paramMediaType, " ", data)
+            poster.src = `${imagePath}${data.poster_path}`;
             title.innerText = `${data.name}`;
             movieTitle.textContent = data.name;
-            summary.textContent = data.overview;
+            summary.innerText = data.overview;
+            overview.innerText = data.overview;
             let genres = data.genres.length;
             if(genres===3){
                 firstGenre.innerText = data.genres[0].name;
@@ -101,7 +102,7 @@ async function loadResults() {
             </p>
             </div>
             `;
-        } else if (paramMediaType == "movie") {
+        } else{
             response = await fetch(`${url}`);
             let data = await response.json();
             console.log("data prijng ", data);
