@@ -129,15 +129,15 @@ async function loadSimilarMovies(element,movieIndex,page) {
     let response;
     let movieTitle;
     if (mediaType === "movie") {
-        myObject = await fetch(`${urlMovie}`+page);
+        myObject = await fetch(urlMovie+page);
         response = await myObject.json();
         movieTitle = response.results[movieIndex].title;
     } else {
-        myObject = await fetch(`${urlTv}`);
+        myObject = await fetch(urlTv+page);
         response = await myObject.json();
         movieTitle = response.results[movieIndex].name;
     }
-    console.log("similar id ", response.results[movieIndex].id);
+    console.log("similar id ", response);
 
         element.innerHTML +=
         `
